@@ -65,3 +65,36 @@ D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\V
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\ref\VeterinariaFrontend.dll
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.pdb
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.genruntimeconfig.cache
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\VeterinariaFrontend.exe
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\VeterinariaFrontend.deps.json
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\VeterinariaFrontend.runtimeconfig.json
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\VeterinariaFrontend.runtimeconfig.dev.json
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\VeterinariaFrontend.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\ref\VeterinariaFrontend.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\VeterinariaFrontend.pdb
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\VeterinariaBackend.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\VeterinariaBackend.pdb
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.Form1.resources
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.FrmAgregarMascota.resources
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.FrmAltaAtencion.resources
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaApp.FrmAltaMascota.resources
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.FrmConsultaMascota.resources
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.login.resources
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.Properties.Resources.resources
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.csproj.GenerateResource.cache
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\ref\VeterinariaFrontend.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.pdb
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.genruntimeconfig.cache

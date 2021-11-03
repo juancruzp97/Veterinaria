@@ -454,19 +454,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\usuario\\.nuget\\packages\\": {}
+    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj",
       "projectName": "VeterinariaBackend",
-      "projectPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj",
-      "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-      "outputPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\obj\\",
+      "projectPath": "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj",
+      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaBackend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

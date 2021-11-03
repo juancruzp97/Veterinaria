@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace VeterinariaFrontend
 {
@@ -52,6 +53,135 @@ namespace VeterinariaFrontend
         {
             FrmConsultaMascota frmConsultaMascota = new FrmConsultaMascota();
             frmConsultaMascota.ShowDialog();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            btnMaximizar.Visible = false;
+            btnRestaurar.Visible = true;
+
+        }
+
+        private void btnRestaurar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            btnRestaurar.Visible = false;
+            btnMaximizar.Visible = true;
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            submenuSoporte.Visible = false;
+            submenuTransaccion.Visible = false;
+            panelsubmenuAcerca.Visible = false;
+        }
+
+
+
+       
+
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMenssage(System.IntPtr hWnd, int wMsg, int wParam, int Iparam);
+
+
+        private void barraTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMenssage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+
+        private void bntSalir_Click_1(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Está seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Dispose();
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void btnSoporte_Click(object sender, EventArgs e)
+        {
+            submenuSoporte.Visible = true;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            submenuSoporte.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            submenuSoporte.Visible = false;
+        }
+
+        private void panelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            submenuTransaccion.Visible = false;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            submenuTransaccion.Visible = false;
+
+        }
+
+        private void panelContenedor_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnTransaccion_Click(object sender, EventArgs e)
+        {
+            submenuTransaccion.Visible = true;
+        }
+
+        private void btnAcerca_Click(object sender, EventArgs e)
+        {
+            panelsubmenuAcerca.Visible = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panelsubmenuAcerca.Visible = false;
+        }
+
+        private void panelContenedor_Paint_2(object sender, PaintEventArgs e)
+        {
+            submenuSoporte.Visible = false;
+            submenuTransaccion.Visible = false;
+            panelsubmenuAcerca.Visible = false;
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            submenuSoporte.Visible = false;
+            submenuTransaccion.Visible = false;
+            panelsubmenuAcerca.Visible = false;
         }
     }
 }

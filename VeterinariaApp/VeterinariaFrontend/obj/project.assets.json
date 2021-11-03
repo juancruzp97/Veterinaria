@@ -509,19 +509,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\usuario\\.nuget\\packages\\": {}
+    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaFrontend\\VeterinariaFrontend.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaFrontend\\VeterinariaFrontend.csproj",
       "projectName": "VeterinariaFrontend",
-      "projectPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaFrontend\\VeterinariaFrontend.csproj",
-      "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-      "outputPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaFrontend\\obj\\",
+      "projectPath": "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaFrontend\\VeterinariaFrontend.csproj",
+      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaFrontend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -535,8 +535,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj": {
-              "projectPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj"
+            "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj": {
+              "projectPath": "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj"
             }
           }
         }

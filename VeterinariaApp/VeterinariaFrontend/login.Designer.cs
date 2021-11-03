@@ -139,7 +139,7 @@ namespace VeterinariaFrontend
             this.lblVeterinaria.BackColor = System.Drawing.Color.Transparent;
             this.lblVeterinaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblVeterinaria.ForeColor = System.Drawing.Color.White;
-            this.lblVeterinaria.Location = new System.Drawing.Point(118, 10);
+            this.lblVeterinaria.Location = new System.Drawing.Point(118, 19);
             this.lblVeterinaria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVeterinaria.Name = "lblVeterinaria";
             this.lblVeterinaria.Size = new System.Drawing.Size(353, 76);

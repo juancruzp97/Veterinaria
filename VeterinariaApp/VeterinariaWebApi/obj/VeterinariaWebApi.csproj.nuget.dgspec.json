@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaWebApi\\VeterinariaWebApi.csproj": {}
+    "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaWebApi\\VeterinariaWebApi.csproj": {}
   },
   "projects": {
-    "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj": {
+    "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj",
         "projectName": "VeterinariaBackend",
-        "projectPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj",
-        "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaBackend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,17 +64,17 @@
         }
       }
     },
-    "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaWebApi\\VeterinariaWebApi.csproj": {
+    "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaWebApi\\VeterinariaWebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaWebApi\\VeterinariaWebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaWebApi\\VeterinariaWebApi.csproj",
         "projectName": "VeterinariaWebApi",
-        "projectPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaWebApi\\VeterinariaWebApi.csproj",
-        "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaWebApi\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaWebApi\\VeterinariaWebApi.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaWebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,8 +88,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj": {
-                "projectPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj"
+              "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\Desktop\\Veterinaria definitiva\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj"
               }
             }
           }

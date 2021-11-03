@@ -72,3 +72,40 @@ D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\V
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\ref\VeterinariaWebApi.dll
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\VeterinariaWebApi.pdb
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\VeterinariaWebApi.genruntimeconfig.cache
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\appsettings.json
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\VeterinariaWebApi.exe
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\VeterinariaWebApi.deps.json
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\VeterinariaWebApi.runtimeconfig.json
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\VeterinariaWebApi.runtimeconfig.dev.json
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\VeterinariaWebApi.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\ref\VeterinariaWebApi.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\VeterinariaWebApi.pdb
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\VeterinariaBackend.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\bin\Debug\net5.0\VeterinariaBackend.pdb
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\VeterinariaWebApi.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\VeterinariaWebApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\VeterinariaWebApi.AssemblyInfoInputs.cache
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\VeterinariaWebApi.AssemblyInfo.cs
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\VeterinariaWebApi.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\VeterinariaWebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\VeterinariaWebApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\staticwebassets\VeterinariaWebApi.StaticWebAssets.Manifest.cache
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\staticwebassets\VeterinariaWebApi.StaticWebAssets.xml
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\scopedcss\bundle\VeterinariaWebApi.styles.css
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\VeterinariaWebApi.RazorTargetAssemblyInfo.cache
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\VeterinariaWebApi.csproj.CopyComplete
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\VeterinariaWebApi.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\ref\VeterinariaWebApi.dll
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\VeterinariaWebApi.pdb
+C:\Users\Usuario\Desktop\Veterinaria definitiva\VeterinariaApp\VeterinariaWebApi\obj\Debug\net5.0\VeterinariaWebApi.genruntimeconfig.cache
