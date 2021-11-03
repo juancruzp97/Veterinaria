@@ -85,5 +85,11 @@ namespace VeterinariaBackend.Negocio
         {
             return _mascotaDao.UpdateAtencion(codMascota, codDetalle, fecha, importe, descrp);
         }
+
+        public bool UpdateMascota(Mascota mascota)
+        {
+            return _mascotaDao.UpdateMascota(mascota);
+        }
+
     }
 }
