@@ -63,6 +63,11 @@ namespace VeterinariaBackend.Acceso_a_Datos.Implementaciones
             return HelperDao.GetInstance().InsertarAtencion(codAtencion, codMascota, fecha, descp, importe);
         }
 
+        public bool InsertarMascota(Mascota oMascota, int cod)
+        {
+            return HelperDao.GetInstance().InsertarMascota("SP_ALTA_SOLO_MASCOTA", oMascota, cod);
+        }
+
         public List<Atencion> ObtenerAtencion(int cod)
         {
             return HelperDao.GetInstance().ObtenerAtencion("SP_ATENCION_CONSULTA", cod);

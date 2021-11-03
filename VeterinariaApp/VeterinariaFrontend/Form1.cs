@@ -29,14 +29,6 @@ namespace VeterinariaFrontend
             frmConsultaMascota.ShowDialog();
         }
 
-        private void nuevaAtencionToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            FrmAltaAtencion frmAltaAtencion = new FrmAltaAtencion();
-            frmAltaAtencion.ShowDialog();
-        }
-
-        
-
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Está seguro que desea salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -48,6 +40,18 @@ namespace VeterinariaFrontend
             {
                 return;
             }
+        }
+
+        private void altaMascotaAtencionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAltaAtencion frmAltaAtencion = new FrmAltaAtencion();
+            frmAltaAtencion.ShowDialog();
+        }
+
+        private void consultarMascotaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmConsultaMascota frmConsultaMascota = new FrmConsultaMascota();
+            frmConsultaMascota.ShowDialog();
         }
     }
 }

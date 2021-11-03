@@ -12,6 +12,7 @@ namespace VeterinariaBackend.Acceso_a_Datos.Interfaces
     {
 
         bool AgregarMascotaAtencion(Mascota oMascota, int id);
+        public bool InsertarMascota(Mascota oMascota, int cod);
         public bool InsertarAtencion(int codAtencion, int codMascota, DateTime fecha, string descp, double importe);
         List<Clientes> ConsultarClientes();
         DataTable ConsultarMascotaNombre(string nombre);

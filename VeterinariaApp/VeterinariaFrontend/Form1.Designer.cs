@@ -33,15 +33,13 @@ namespace VeterinariaFrontend
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.soporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarMascotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarAtencionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atencionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transacciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevaAtencionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevaAtencionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.altaMascotaAtencionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mascotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,8 +62,7 @@ namespace VeterinariaFrontend
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salirToolStripMenuItem,
-            this.salirToolStripMenuItem1});
+            this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
@@ -76,63 +73,48 @@ namespace VeterinariaFrontend
             this.salirToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(35)))), ((int)(((byte)(49)))));
             this.salirToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // soporteToolStripMenuItem
             // 
             this.soporteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consultarMascotaToolStripMenuItem,
-            this.consultarClienteToolStripMenuItem,
-            this.modificarAtencionToolStripMenuItem});
+            this.mascotaToolStripMenuItem,
+            this.clienteToolStripMenuItem,
+            this.atencionToolStripMenuItem});
             this.soporteToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.soporteToolStripMenuItem.Name = "soporteToolStripMenuItem";
             this.soporteToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.soporteToolStripMenuItem.Text = "Soporte";
             // 
-            // consultarMascotaToolStripMenuItem
+            // clienteToolStripMenuItem
             // 
-            this.consultarMascotaToolStripMenuItem.Name = "consultarMascotaToolStripMenuItem";
-            this.consultarMascotaToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.consultarMascotaToolStripMenuItem.Text = "Consultar Mascota";
-            this.consultarMascotaToolStripMenuItem.Click += new System.EventHandler(this.consultarMascotaToolStripMenuItem_Click);
+            this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem.Text = "Cliente";
             // 
-            // consultarClienteToolStripMenuItem
+            // atencionToolStripMenuItem
             // 
-            this.consultarClienteToolStripMenuItem.Name = "consultarClienteToolStripMenuItem";
-            this.consultarClienteToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.consultarClienteToolStripMenuItem.Text = "Consultar Cliente";
-            // 
-            // modificarAtencionToolStripMenuItem
-            // 
-            this.modificarAtencionToolStripMenuItem.Name = "modificarAtencionToolStripMenuItem";
-            this.modificarAtencionToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.modificarAtencionToolStripMenuItem.Text = "Modificar Atencion";
+            this.atencionToolStripMenuItem.Name = "atencionToolStripMenuItem";
+            this.atencionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.atencionToolStripMenuItem.Text = "Atencion";
             // 
             // transacciónToolStripMenuItem
             // 
             this.transacciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevaAtencionToolStripMenuItem,
-            this.nuevaAtencionToolStripMenuItem1});
+            this.altaMascotaAtencionToolStripMenuItem});
             this.transacciónToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.transacciónToolStripMenuItem.Name = "transacciónToolStripMenuItem";
             this.transacciónToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.transacciónToolStripMenuItem.Text = "Transacción";
             // 
-            // nuevaAtencionToolStripMenuItem
+            // altaMascotaAtencionToolStripMenuItem
             // 
-            this.nuevaAtencionToolStripMenuItem.Name = "nuevaAtencionToolStripMenuItem";
-            this.nuevaAtencionToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.nuevaAtencionToolStripMenuItem.Text = "Alta Mascota";
-            this.nuevaAtencionToolStripMenuItem.Click += new System.EventHandler(this.nuevaAtencionToolStripMenuItem_Click);
-            // 
-            // nuevaAtencionToolStripMenuItem1
-            // 
-            this.nuevaAtencionToolStripMenuItem1.Name = "nuevaAtencionToolStripMenuItem1";
-            this.nuevaAtencionToolStripMenuItem1.Size = new System.Drawing.Size(196, 22);
-            this.nuevaAtencionToolStripMenuItem1.Text = "Alta Mascota-Atencion";
-            this.nuevaAtencionToolStripMenuItem1.Click += new System.EventHandler(this.nuevaAtencionToolStripMenuItem1_Click);
+            this.altaMascotaAtencionToolStripMenuItem.Name = "altaMascotaAtencionToolStripMenuItem";
+            this.altaMascotaAtencionToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.altaMascotaAtencionToolStripMenuItem.Text = "Alta Mascota-Atencion";
+            this.altaMascotaAtencionToolStripMenuItem.Click += new System.EventHandler(this.altaMascotaAtencionToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
@@ -148,11 +130,11 @@ namespace VeterinariaFrontend
             this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
             // 
-            // salirToolStripMenuItem1
+            // mascotaToolStripMenuItem
             // 
-            this.salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
-            this.salirToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.salirToolStripMenuItem1.Text = "Salir";
+            this.mascotaToolStripMenuItem.Name = "mascotaToolStripMenuItem";
+            this.mascotaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mascotaToolStripMenuItem.Text = "Mascota";
             // 
             // Form1
             // 
@@ -182,12 +164,10 @@ namespace VeterinariaFrontend
         private System.Windows.Forms.ToolStripMenuItem transacciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarMascotaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarClienteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarAtencionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevaAtencionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevaAtencionToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem atencionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem altaMascotaAtencionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mascotaToolStripMenuItem;
     }
 }
 

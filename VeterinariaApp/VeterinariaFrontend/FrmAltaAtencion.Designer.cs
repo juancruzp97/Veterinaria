@@ -327,7 +327,7 @@ namespace VeterinariaFrontend
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(826, 445);
+            this.ClientSize = new System.Drawing.Size(828, 440);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.cboTipo);

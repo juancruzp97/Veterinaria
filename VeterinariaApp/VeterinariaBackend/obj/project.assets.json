@@ -459,11 +459,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\VeterinariaApp\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj",
+      "projectUniqueName": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj",
       "projectName": "VeterinariaBackend",
-      "projectPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\VeterinariaApp\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj",
+      "projectPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj",
       "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-      "outputPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\VeterinariaApp\\VeterinariaApp\\VeterinariaBackend\\obj\\",
+      "outputPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -110,8 +110,8 @@ namespace VeterinariaWebApi.Controllers
         }
 
         // POST api/<VeterinariaController>
-        [HttpPost("AgregarMascota/{id}")]
-        public IActionResult PostMascota(Mascota oMascota, int id)
+        [HttpPost("AgregarMascotaAtencion/{id}")]
+        public IActionResult PostMascotaAtencion(Mascota oMascota, int id)
         {
             if (oMascota == null)
             {
@@ -124,6 +124,23 @@ namespace VeterinariaWebApi.Controllers
             else
             {
                 return Ok("No se pudo grabar la reseta");
+            }
+        }
+        // POST api/<VeterinariaController>
+        [HttpPost("AgregarMascota/{id}")]
+        public IActionResult PostMascota(Mascota oMascota, int id)
+        {
+            if (oMascota == null)
+            {
+                return BadRequest();
+            }
+            if (servicio.InsertarMascota(oMascota, id))
+            {
+                return Ok("Ok");
+            }
+            else
+            {
+                return Ok("No se pudo grabar la Mascota");
             }
         }
 

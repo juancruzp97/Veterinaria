@@ -659,11 +659,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\VeterinariaApp\\VeterinariaApp\\VeterinariaWebApi\\VeterinariaWebApi.csproj",
+      "projectUniqueName": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaWebApi\\VeterinariaWebApi.csproj",
       "projectName": "VeterinariaWebApi",
-      "projectPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\VeterinariaApp\\VeterinariaApp\\VeterinariaWebApi\\VeterinariaWebApi.csproj",
+      "projectPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaWebApi\\VeterinariaWebApi.csproj",
       "packagesPath": "C:\\Users\\usuario\\.nuget\\packages\\",
-      "outputPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\VeterinariaApp\\VeterinariaApp\\VeterinariaWebApi\\obj\\",
+      "outputPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaWebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -680,8 +680,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\VeterinariaApp\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj": {
-              "projectPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\VeterinariaApp\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj"
+            "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj": {
+              "projectPath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj"
             }
           }
         }

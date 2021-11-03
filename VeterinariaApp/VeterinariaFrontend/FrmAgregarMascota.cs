@@ -95,7 +95,7 @@ namespace VeterinariaFrontend
             oMascota.TipoMascota = cboTipo.SelectedIndex + 1;
             int id = cboCliente.SelectedIndex + 1;
 
-            string data = JsonConvert.SerializeObject(oMascota);
+            string data = JsonConvert.SerializeObject(oMascota); 
 
             bool succes = await GrabarMascotaAsync(data, id);
             if (succes)
@@ -132,7 +132,6 @@ namespace VeterinariaFrontend
                 string response = await result.Content.ReadAsStringAsync();
                 return response.Equals("Ok");
             }
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

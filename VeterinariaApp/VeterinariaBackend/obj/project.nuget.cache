@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g5S4ZKjUgBzNImuTYrrOXJo6+LwhHBOyfpqCAl87uqri+VsmRxducdXbw3lvYKlOW1gjKmYKsNBqDTSXocOsAA==",
+  "dgSpecHash": "j/JefHR+zURzOFFB2y4Xs/MtvdctV/AKgz9z6gxR7hdYOO0wiz/MNMlxa79M2zylaFhTUW8HAgHie7BbEoRC3g==",
   "success": true,
-  "projectFilePath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\VeterinariaApp\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj",
+  "projectFilePath": "D:\\Juan Cruz\\Tec. Programacion\\2do Cuatrimestre\\Programacion II\\TP\\Veterinaria\\VeterinariaApp\\VeterinariaBackend\\VeterinariaBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\usuario\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\usuario\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

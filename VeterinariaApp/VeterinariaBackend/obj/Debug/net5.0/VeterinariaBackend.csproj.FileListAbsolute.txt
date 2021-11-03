@@ -10,3 +10,15 @@ D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\VeterinariaApp\V
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\VeterinariaApp\VeterinariaApp\VeterinariaBackend\obj\Debug\net5.0\ref\VeterinariaBackend.dll
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\VeterinariaApp\VeterinariaApp\VeterinariaBackend\obj\Debug\net5.0\VeterinariaBackend.pdb
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\VeterinariaApp\VeterinariaApp\VeterinariaBackend\obj\Debug\net5.0\VeterinariaBackend.csproj.AssemblyReference.cache
+D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\bin\Debug\net5.0\VeterinariaBackend.deps.json
+D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\bin\Debug\net5.0\VeterinariaBackend.dll
+D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\bin\Debug\net5.0\ref\VeterinariaBackend.dll
+D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\bin\Debug\net5.0\VeterinariaBackend.pdb
+D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\obj\Debug\net5.0\VeterinariaBackend.csproj.AssemblyReference.cache
+D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\obj\Debug\net5.0\VeterinariaBackend.GeneratedMSBuildEditorConfig.editorconfig
+D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\obj\Debug\net5.0\VeterinariaBackend.AssemblyInfoInputs.cache
+D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\obj\Debug\net5.0\VeterinariaBackend.AssemblyInfo.cs
+D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\obj\Debug\net5.0\VeterinariaBackend.csproj.CoreCompileInputs.cache
+D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\obj\Debug\net5.0\VeterinariaBackend.dll
+D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\obj\Debug\net5.0\ref\VeterinariaBackend.dll
+D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\obj\Debug\net5.0\VeterinariaBackend.pdb

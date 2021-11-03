@@ -130,6 +130,47 @@ namespace VeterinariaBackend.Acceso_a_Datos
             }
         }
 
+        public bool InsertarMascota(string spAltaM,Mascota mascota, int cod)
+        {
+            bool flag = true;
+
+            SqlConnection cnn = new SqlConnection(conexionString);
+            SqlTransaction transaccion = null;
+
+            try
+            {
+                cnn.Open();
+                transaccion = cnn.BeginTransaction();
+
+                SqlCommand cmd = new SqlCommand(spAltaM, cnn, transaccion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nommascota",mascota.Nombre);
+                cmd.Parameters.AddWithValue("@edad", mascota.Edad);
+                cmd.Parameters.AddWithValue("@tipo",mascota.TipoMascota);
+                cmd.Parameters.AddWithValue("@cliente", cod);
+
+                cmd.ExecuteNonQuery();
+                transaccion.Commit();
+
+
+            }
+            catch (Exception)
+            {
+                transaccion.Rollback();
+                flag = false;
+
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
+            }
+
+            return flag;
+        }
+
         public bool InsertarSql(Mascota oMascota, string spMascota, string spAtencion, int id)
         {
             bool flag = true;

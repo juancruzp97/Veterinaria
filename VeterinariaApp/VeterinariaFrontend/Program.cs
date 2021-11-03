@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VeterinariaApp;
 
 namespace VeterinariaFrontend
 {
@@ -17,7 +18,7 @@ namespace VeterinariaFrontend
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new login());
+            Application.Run(new FrmAltaAtencion());
         }
     }
 }
