@@ -42,36 +42,36 @@ namespace VeterinariaWebApi.Controllers
 
         }
 
-        [HttpGet("GetIdMascota/{id}/{nombre}")]
-        public ActionResult GetIdMascota(int id, string nombre)
-        {
+        //[HttpGet("GetIdMascota/{id}/{nombre}")]
+        //public ActionResult GetIdMascota(int id, string nombre)
+        //{
             
-            if (servicio.GetIdMascota(id, nombre) == 0)
-            {
-                return BadRequest("Problemas al consultar Mascota");
-            }
-            else
-            {
-                return Ok(servicio.GetIdMascota(id, nombre));
-            }
+        //    if (servicio.GetIdMascota(id, nombre) == 0)
+        //    {
+        //        return BadRequest("Problemas al consultar Mascota");
+        //    }
+        //    else
+        //    {
+        //        return Ok(servicio.GetIdMascota(id, nombre));
+        //    }
 
 
-        }
-        [HttpGet("GetAtencion/{id}")]
-        public ActionResult GetAtencion(int id)
-        {
+        //}
+        //[HttpGet("GetAtencion/{id}")]
+        //public ActionResult GetAtencion(int id)
+        //{
 
-            if (servicio.ObtenerAtencion(id).Count == 0)
-            {
-                return BadRequest("Problemas al consultar Mascota");
-            }
-            else
-            {
-                return Ok(servicio.ObtenerAtencion(id));
-            }
+        //    if (servicio.ObtenerAtencion(id).Count == 0)
+        //    {
+        //        return BadRequest("Problemas al consultar Mascota");
+        //    }
+        //    else
+        //    {
+        //        return Ok(servicio.ObtenerAtencion(id));
+        //    }
 
 
-        }
+        //}
         [HttpGet("GetDetalleAtencion/{id}")]
         public ActionResult GetDetalleAtencion(int id)
         {
@@ -87,20 +87,21 @@ namespace VeterinariaWebApi.Controllers
 
 
         }
-        [HttpGet("ConsultarMascota/{id}")]
-        public ActionResult GetMascota(int id)
-        {
-            if (servicio.ObtenerClientes().Count == 0)
-            {
-                return BadRequest("Problemas al consultar Cliente");
-            }
-            else
-            {
-                return Ok(servicio.ObtenerMascotaCliente(id));
-            }
+
+        //[HttpGet("ConsultarMascota/{id}")]
+        //public ActionResult GetMascota(int id)
+        //{
+        //    if (servicio.ObtenerClientes().Count == 0)
+        //    {
+        //        return BadRequest("Problemas al consultar Cliente");
+        //    }
+        //    else
+        //    {
+        //        return Ok(servicio.ObtenerMascotaCliente(id));
+        //    }
 
 
-        }
+        //}
 
         // GET api/<VeterinariaController>/5
         [HttpGet("{id}")]
@@ -127,27 +128,29 @@ namespace VeterinariaWebApi.Controllers
             }
         }
         // POST api/<VeterinariaController>
-        [HttpPost("AgregarMascota/{id}")]
-        public IActionResult PostMascota(Mascota oMascota, int id)
-        {
-            if (oMascota == null)
-            {
-                return BadRequest();
-            }
-            if (servicio.InsertarMascota(oMascota, id))
-            {
-                return Ok("Ok");
-            }
-            else
-            {
-                return Ok("No se pudo grabar la Mascota");
-            }
-        }
+        //[HttpPost("AgregarMascota/{id}")]
+        //public IActionResult PostMascota(Mascota oMascota, int id)
+        //{
+        //    if (oMascota == null)
+        //    {
+        //        return BadRequest();
+        //    }
+        //    if (servicio.InsertarMascota(oMascota, id))
+        //    {
+        //        return Ok("Ok");
+        //    }
+        //    else
+        //    {
+        //        return Ok("No se pudo grabar la Mascota");
+        //    }
+        //}
 
         // PUT api/<VeterinariaController>/5
+
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
+           // if()
         }
 
         // DELETE api/<VeterinariaController>/5

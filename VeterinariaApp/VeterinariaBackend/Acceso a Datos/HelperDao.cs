@@ -278,6 +278,44 @@ namespace VeterinariaBackend.Acceso_a_Datos
             return flag;
         }
 
+        public bool UpdateMascota(string spUpdate, Mascota mascota)
+        {
+            bool flag = true;
+            SqlConnection cnn = new SqlConnection(conexionString);
+            SqlTransaction transaccion = null;
+
+            try
+            {
+                cnn.Open();
+                transaccion = cnn.BeginTransaction();
+                SqlCommand cmd = new SqlCommand(spUpdate, cnn, transaccion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@cod", mascota.CodigoMascota);
+                cmd.Parameters.AddWithValue("@nom",mascota.Nombre);
+                cmd.Parameters.AddWithValue("@edad",mascota.Edad);
+                cmd.Parameters.AddWithValue("@tipo",mascota.TipoMascota);
+
+                cmd.ExecuteNonQuery();
+
+                transaccion.Commit();
+            }
+            catch (Exception)
+            {
+                transaccion.Rollback();
+                flag = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
+            }
+
+            return flag;
+
+        }
+
         public List<Clientes> ObtenerClientes(string spCliente)
         {
             List<Clientes> lista = new List<Clientes>();
@@ -350,6 +388,7 @@ namespace VeterinariaBackend.Acceso_a_Datos
             foreach (DataRow row in tabla.Rows)
             {
                 Mascota mascota = new Mascota();
+                mascota.CodigoMascota = Convert.ToInt32(row["cod_mascota"].ToString());
                 mascota.Nombre = row["nombre"].ToString();
                 mascota.Edad = Convert.ToInt32(row["edad"].ToString());
                 mascota.TipoMascota = Convert.ToInt32(row["tipo"].ToString());

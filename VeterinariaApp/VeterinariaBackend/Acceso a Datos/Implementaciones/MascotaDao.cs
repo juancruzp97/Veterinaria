@@ -83,5 +83,9 @@ namespace VeterinariaBackend.Acceso_a_Datos.Implementaciones
             return HelperDao.GetInstance().UpdateAtencion(codMascota, codDetalle, fecha, importe, descrp);
         }
 
+        public bool UpdateMascota(Mascota oMascota)
+        {
+            return HelperDao.GetInstance().UpdateMascota("SP_UPDATE_MASCOTA2", oMascota);
+        }
     }
 }
