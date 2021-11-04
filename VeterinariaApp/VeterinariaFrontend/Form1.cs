@@ -118,10 +118,26 @@ namespace VeterinariaFrontend
                 return;
             }
         }
-
+        //soporte
         private void btnSoporte_Click(object sender, EventArgs e)
         {
             submenuSoporte.Visible = true;
+            submenuTransaccion.Visible = false;
+            panelsubmenuAcerca.Visible = false;
+        }
+        //transaccion
+        private void btnTransaccion_Click(object sender, EventArgs e)
+        {
+            submenuTransaccion.Visible = true;
+            submenuSoporte.Visible = false;
+            panelsubmenuAcerca.Visible = false;
+        }
+        //acerca de
+        private void btnAcerca_Click(object sender, EventArgs e)
+        {
+            panelsubmenuAcerca.Visible = true;
+            submenuSoporte.Visible = false;
+            submenuTransaccion.Visible = false;
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -134,11 +150,6 @@ namespace VeterinariaFrontend
             submenuSoporte.Visible = false;
         }
 
-        private void panelContenedor_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             submenuTransaccion.Visible = false;
@@ -148,21 +159,6 @@ namespace VeterinariaFrontend
         {
             submenuTransaccion.Visible = false;
 
-        }
-
-        private void panelContenedor_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnTransaccion_Click(object sender, EventArgs e)
-        {
-            submenuTransaccion.Visible = true;
-        }
-
-        private void btnAcerca_Click(object sender, EventArgs e)
-        {
-            panelsubmenuAcerca.Visible = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
