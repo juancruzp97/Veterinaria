@@ -81,9 +81,9 @@ namespace VeterinariaBackend.Negocio
         {
             return _mascotaDao.DeleteDetalleAtencion(idMascota, idDetalle);
         }
-        public bool UpdateAtencion(int codMascota, int codDetalle, DateTime fecha, double importe, string descrp)
+        public bool UpdateAtencion(Atencion atencion, int id)
         {
-            return _mascotaDao.UpdateAtencion(codMascota, codDetalle, fecha, importe, descrp);
+            return _mascotaDao.UpdateAtencion(atencion,id);
         }
 
         public bool UpdateMascota(Mascota mascota)

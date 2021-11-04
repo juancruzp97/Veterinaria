@@ -153,18 +153,6 @@ namespace VeterinariaWebApi.Controllers
            // if()
         }
 
-        // DELETE api/<VeterinariaController>/5
-        [HttpDelete("DeleteDetalle/{id}/{det}")]
-        public IActionResult DeleteDetalle(int id, int det)
-        {
-            if(servicio.DeleteDetalleAtencion(id,det) == false)
-            {
-                return BadRequest();
-            }
-            else
-            {
-                return Ok("Detalle Borrado");
-            }
-        }
+
     }
 }

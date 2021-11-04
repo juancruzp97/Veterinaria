@@ -78,9 +78,9 @@ namespace VeterinariaBackend.Acceso_a_Datos.Implementaciones
             return HelperDao.GetInstance().ProximoDetalle(idMascota);
         }
 
-        public bool UpdateAtencion(int codMascota, int codDetalle, DateTime fecha, double importe, string descrp)
+        public bool UpdateAtencion(Atencion atencion, int id)
         {
-            return HelperDao.GetInstance().UpdateAtencion(codMascota, codDetalle, fecha, importe, descrp);
+            return HelperDao.GetInstance().UpdateAtencion("SP_UPDATE_ATENCION", atencion,id);
         }
 
         public bool UpdateMascota(Mascota oMascota)

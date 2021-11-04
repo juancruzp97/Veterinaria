@@ -38,8 +38,6 @@ namespace VeterinariaFrontend
             dtPicker.Enabled = false;
             txtImporte.Enabled = false;
             txtDescripcion.Enabled = false;
-
-
         }
 
 
@@ -134,12 +132,6 @@ namespace VeterinariaFrontend
                 j++;
             }
         }
-
-
-
-
-
-
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -250,7 +242,7 @@ namespace VeterinariaFrontend
             DateTime fecha = dtPicker.Value;
             string descrp = txtDescripcion.Text;
             double importe = Convert.ToDouble(txtImporte.Text);
-            _gestor.UpdateAtencion(mascota, codigo, fecha, importe, descrp);
+            //_gestor.UpdateAtencion(mascota, codigo, fecha, importe, descrp);
             dgvAtencion.Rows.Clear();
             CargarDGV();
             btnAgregar.Enabled = true;

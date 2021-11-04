@@ -120,10 +120,6 @@ namespace VeterinariaWebApi.Controllers
                 
         }
 
-        // DELETE api/<MascotaController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+     
     }
 }

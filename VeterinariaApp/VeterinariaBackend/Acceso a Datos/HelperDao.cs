@@ -359,6 +359,7 @@ namespace VeterinariaBackend.Acceso_a_Datos
             foreach (DataRow filas in tabla.Rows)
             {
                 Atencion oAtencion = new Atencion();
+                oAtencion.CodAtencion = Convert.ToInt32(filas["cod_atencion"].ToString());
                 oAtencion.Fecha = Convert.ToDateTime(filas["fecha"].ToString());
                 oAtencion.Descripcion = filas["descripcion"].ToString();
                 oAtencion.Importe = Convert.ToDouble(filas["importe"].ToString());
@@ -517,7 +518,7 @@ namespace VeterinariaBackend.Acceso_a_Datos
 
             return flag;
         }
-        public bool UpdateAtencion(int codMascota, int codDetalle, DateTime fecha, double importe, string descrp)
+        public bool UpdateAtencion(string spUpAt,Atencion atencion, int id)
         {
             SqlConnection cnn = new SqlConnection(conexionString);
             SqlTransaction transaccion = null;
@@ -527,13 +528,13 @@ namespace VeterinariaBackend.Acceso_a_Datos
             {
                 cnn.Open();
                 transaccion = cnn.BeginTransaction();
-                SqlCommand cmd = new SqlCommand("SP_UPDATE_ATENCION", cnn, transaccion);
+                SqlCommand cmd = new SqlCommand(spUpAt, cnn, transaccion);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@atencion", codDetalle);
-                cmd.Parameters.AddWithValue("@mascota", codMascota);
-                cmd.Parameters.AddWithValue("@fecha", fecha);
-                cmd.Parameters.AddWithValue("@descripcion", descrp);
-                cmd.Parameters.AddWithValue("@importe", importe);
+                cmd.Parameters.AddWithValue("@atencion", atencion.CodAtencion);
+                cmd.Parameters.AddWithValue("@mascota", id);
+                cmd.Parameters.AddWithValue("@fecha", atencion.Fecha);
+                cmd.Parameters.AddWithValue("@descripcion", atencion.Descripcion);
+                cmd.Parameters.AddWithValue("@importe", atencion.Importe);
                 cmd.ExecuteNonQuery();
 
                 transaccion.Commit();

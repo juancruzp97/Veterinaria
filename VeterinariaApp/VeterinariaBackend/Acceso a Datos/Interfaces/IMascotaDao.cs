@@ -25,6 +25,6 @@ namespace VeterinariaBackend.Acceso_a_Datos.Interfaces
         public bool DeleteMascota(int idMascota);
         public bool DeleteAtencion(int idMascota);
         public bool DeleteDetalleAtencion(int idMascota, int idDetalle);
-        public bool UpdateAtencion(int codMascota, int codDetalle, DateTime fecha, double importe, string descrp);
+        public bool UpdateAtencion(Atencion oAtencion, int id);
     }
 }

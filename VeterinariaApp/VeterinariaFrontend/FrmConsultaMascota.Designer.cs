@@ -38,7 +38,8 @@ namespace VeterinariaFrontend
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Accion = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Quitar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -49,6 +50,7 @@ namespace VeterinariaFrontend
             this.cboTipo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtencion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,12 +100,13 @@ namespace VeterinariaFrontend
             this.Fecha,
             this.Descripcion,
             this.Importe,
-            this.Accion});
-            this.dgvAtencion.Location = new System.Drawing.Point(53, 124);
+            this.Quitar,
+            this.Editar});
+            this.dgvAtencion.Location = new System.Drawing.Point(12, 122);
             this.dgvAtencion.Name = "dgvAtencion";
             this.dgvAtencion.ReadOnly = true;
             this.dgvAtencion.RowTemplate.Height = 25;
-            this.dgvAtencion.Size = new System.Drawing.Size(544, 150);
+            this.dgvAtencion.Size = new System.Drawing.Size(624, 150);
             this.dgvAtencion.TabIndex = 5;
             this.dgvAtencion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAtencion_CellContentClick);
             // 
@@ -131,16 +134,27 @@ namespace VeterinariaFrontend
             this.Importe.Name = "Importe";
             this.Importe.ReadOnly = true;
             // 
-            // Accion
+            // Quitar
             // 
-            this.Accion.HeaderText = "Accion";
-            this.Accion.Name = "Accion";
-            this.Accion.ReadOnly = true;
-            this.Accion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Accion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Accion.Text = "Quitar";
-            this.Accion.ToolTipText = "Quitar";
-            this.Accion.UseColumnTextForButtonValue = true;
+            this.Quitar.HeaderText = "Quitar";
+            this.Quitar.Name = "Quitar";
+            this.Quitar.ReadOnly = true;
+            this.Quitar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Quitar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Quitar.Text = "Quitar";
+            this.Quitar.ToolTipText = "Quitar";
+            this.Quitar.UseColumnTextForButtonValue = true;
+            // 
+            // Editar
+            // 
+            this.Editar.HeaderText = "Editar";
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Editar.Text = "Editar";
+            this.Editar.ToolTipText = "Editar";
+            this.Editar.UseColumnTextForButtonValue = true;
             // 
             // btnEliminar
             // 
@@ -150,6 +164,7 @@ namespace VeterinariaFrontend
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnEditar
             // 
@@ -163,7 +178,7 @@ namespace VeterinariaFrontend
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(415, 306);
+            this.btnSalir.Location = new System.Drawing.Point(522, 306);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 8;
@@ -235,11 +250,21 @@ namespace VeterinariaFrontend
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_ClickAsync);
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(432, 306);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 16;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
             // FrmConsultaMascota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(668, 351);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.cboTipo);
             this.Controls.Add(this.label4);
@@ -274,11 +299,6 @@ namespace VeterinariaFrontend
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
-        private System.Windows.Forms.DataGridViewButtonColumn Accion;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtEdad;
@@ -286,5 +306,12 @@ namespace VeterinariaFrontend
         private System.Windows.Forms.ComboBox cboTipo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
+        private System.Windows.Forms.DataGridViewButtonColumn Quitar;
+        private System.Windows.Forms.DataGridViewButtonColumn Editar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
