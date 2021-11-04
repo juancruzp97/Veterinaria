@@ -241,7 +241,7 @@ namespace VeterinariaBackend.Acceso_a_Datos
 
 
         }
-        public bool InsertarAtencion(int codAtencion, int codMascota, DateTime fecha, string descp, double importe)
+        public bool InsertarAtencion(Mascota oMascota)
         {
             SqlConnection cnn = new SqlConnection(conexionString);
             SqlTransaction transaccion = null;
@@ -251,14 +251,18 @@ namespace VeterinariaBackend.Acceso_a_Datos
             {
                 cnn.Open();
                 transaccion = cnn.BeginTransaction();
-                SqlCommand cmd = new SqlCommand("SP_INSERTAR_ATENCION", cnn, transaccion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@cod_atencion", codAtencion);
-                cmd.Parameters.AddWithValue("cod_mascota", codMascota);
-                cmd.Parameters.AddWithValue("@fecha", fecha);
-                cmd.Parameters.AddWithValue("@descripcion", descp);
-                cmd.Parameters.AddWithValue("@importe", importe);
-                cmd.ExecuteNonQuery();
+
+                for (int i = 0; i < oMascota.ListaAtencion.Count; i++)
+                {
+                    SqlCommand cmd = new SqlCommand("SP_INSERTAR_ATENCION", cnn, transaccion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@cod_atencion", oMascota.ListaAtencion[i].CodAtencion);
+                    cmd.Parameters.AddWithValue("@cod_mascota", oMascota.CodigoMascota);
+                    cmd.Parameters.AddWithValue("@fecha", oMascota.ListaAtencion[i].Fecha);
+                    cmd.Parameters.AddWithValue("@descripcion", oMascota.ListaAtencion[i].Descripcion);
+                    cmd.Parameters.AddWithValue("@importe", oMascota.ListaAtencion[i].Importe);
+                    cmd.ExecuteNonQuery();
+                }
 
                 transaccion.Commit();
             }

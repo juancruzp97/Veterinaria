@@ -58,9 +58,9 @@ namespace VeterinariaBackend.Acceso_a_Datos.Implementaciones
             return HelperDao.GetInstance().GetIdMascota("SP_COD_MASCOTA", cliente, nombre);
         }
 
-        public bool InsertarAtencion(int codAtencion, int codMascota, DateTime fecha, string descp, double importe)
+        public bool InsertarAtencion(Mascota oMascota)
         {
-            return HelperDao.GetInstance().InsertarAtencion(codAtencion, codMascota, fecha, descp, importe);
+            return HelperDao.GetInstance().InsertarAtencion(oMascota);
         }
 
         public bool InsertarMascota(Mascota oMascota, int cod)

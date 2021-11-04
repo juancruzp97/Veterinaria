@@ -50,7 +50,7 @@ namespace VeterinariaWebApi.Controllers
         [HttpGet("ConsultarMascota/{id}")]
         public ActionResult GetMascota(int id)
         {
-            if (servicio.ObtenerClientes().Count == 0)
+            if (servicio.ObtenerMascotaCliente(id).Count == 0)
             {
                 return BadRequest("Problemas al consultar Cliente");
             }
@@ -93,12 +93,19 @@ namespace VeterinariaWebApi.Controllers
         }
 
 
-        // POST api/<MascotaController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        // DELETE
+        [HttpDelete("DeleteMascota/{id}")]
+        public IActionResult DeleteMascota(int id)
         {
+            if (servicio.DeleteMascota(id) == false)
+            {
+                return BadRequest("Problemas al eliminar Mascota");
+            }
+            else
+            {
+                return Ok("Mascota Eliminada");
+            }
         }
-
 
 
         // PUT api/<MascotaController>/5

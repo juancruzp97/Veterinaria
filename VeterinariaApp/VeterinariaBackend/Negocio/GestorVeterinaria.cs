@@ -33,9 +33,9 @@ namespace VeterinariaBackend.Negocio
             return _mascotaDao.InsertarMascota(oMascota, cod);
         }
 
-        public bool InsertarAtencion(int codAtencion, int codMascota, DateTime fecha, string descp, double importe)
+        public bool InsertarAtencion(Mascota oMascota)
         {
-            return _mascotaDao.InsertarAtencion(codAtencion, codMascota, fecha, descp, importe);
+            return _mascotaDao.InsertarAtencion(oMascota);
         }
 
         public List<Clientes> ObtenerClientes()

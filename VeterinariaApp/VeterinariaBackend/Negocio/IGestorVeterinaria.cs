@@ -13,7 +13,7 @@ namespace VeterinariaBackend.Negocio
         public bool InsertarMascota(Mascota oMascota, int cod);
         public bool AgregarMascotaAtencion(Mascota mascota, int id);
         public bool UpdateMascota(Mascota mascota);
-        public bool InsertarAtencion(int codAtencion, int codMascota, DateTime fecha, string descp, double importe);
+        public bool InsertarAtencion(Mascota mascota);
         public List<Clientes> ObtenerClientes();
         public List<Mascota> ObtenerMascotaCliente(int cod);
         public DataTable MascotaNombre(string nombre);

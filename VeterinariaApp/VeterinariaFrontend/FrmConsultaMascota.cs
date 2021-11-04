@@ -100,12 +100,38 @@ namespace VeterinariaFrontend
             }
 
         }
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private async void btnEliminar_ClickAsync(object sender, EventArgs e)
         {
-            //int idMascota = 
-            //await DeleteAtencion(idMascota);
+            int idMascota = oMascota.CodigoMascota;
+            bool check = await DeleteAtencion(idMascota);
+
+            if (check)
+            {
+                MessageBox.Show("Atencion Eliminada", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                bool check2 = await DeleteMascota(idMascota);
+                if (check2)
+                {
+                    MessageBox.Show("Mascota Eliminada", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    limpiar();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Problemas al eliminar Mascota", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Problemas al eliminar Atencion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
         }
 
+      
+        
+
+       
 
         //EVENTOS
 
@@ -120,7 +146,16 @@ namespace VeterinariaFrontend
             {
                 dgvAtencion.Rows.Clear();
                 int cbo = cboCliente.SelectedIndex + 1;
-                await CargarComboMascota(cbo);
+                if(cbo == 0)
+                {
+                    return;
+                }
+                else
+                {
+                    await CargarComboMascota(cbo);
+                    return;
+                }
+                
             }
         }
 
@@ -230,6 +265,39 @@ namespace VeterinariaFrontend
 
 
         //API
+        private async Task<bool> DeleteMascota(int idMascota)
+        {
+            string url = "https://localhost:44310/api/Mascota/DeleteMascota" + "/" + idMascota.ToString();
+            HttpClient cliente = new HttpClient();
+            var result = await cliente.DeleteAsync(url);
+            bool succes = true;
+            if (result.IsSuccessStatusCode)
+            {
+                return succes;
+            }
+            else
+            {
+                succes = false;
+                return succes;
+            }
+        }
+        private async Task<bool> DeleteAtencion(int idMascota)
+        {
+            string url = "https://localhost:44310/api/Atencion/DeleteAtencion" + "/" + idMascota.ToString();
+            HttpClient cliente = new HttpClient();
+            var result = await cliente.DeleteAsync(url);
+            bool success = true;
+            if (result.IsSuccessStatusCode)
+            {
+                return success;
+            }
+            else
+            {
+                success = false;
+                return success;
+            }
+
+        }
         private async Task<bool> BorrarDetalleAtencion(int id, int det)
         {
             string url = "https://localhost:44310/api/Atencion/DeleteDetalle" + "/" + id.ToString() + "/" + det.ToString();
@@ -292,6 +360,8 @@ namespace VeterinariaFrontend
             return succes;
         }
 
+
+
         //METODOS
         private void CargarDgv(List<Atencion> lista, int masc)
         {
@@ -345,7 +415,16 @@ namespace VeterinariaFrontend
             cboMascota.Enabled = x;
             dgvAtencion.Enabled = x;
         }
+        private void limpiar()
+        {
+            txtEdad.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            cboMascota.SelectedIndex = -1;
+            cboCliente.SelectedIndex = -1;
+            dgvAtencion.Rows.Clear();
+            //CargarComboCliente();
+            //CargarComboMascota();
+        }
 
-       
     }
 }

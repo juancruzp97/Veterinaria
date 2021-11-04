@@ -53,9 +53,17 @@ namespace VeterinariaWebApi.Controllers
 
 
         // POST api/<AtencionController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost("InsertarAtencion")]
+        public IActionResult InsertarAtencion(Mascota mascota)
         {
+            if (servicio.InsertarAtencion(mascota) == false)
+            {
+                return BadRequest("Fallo insertar Atencion");
+            }
+            else
+            {
+                return Ok("Atencion agregada con Exito");
+            }
         }
 
         // PUT api/<AtencionController>/5
@@ -76,13 +84,28 @@ namespace VeterinariaWebApi.Controllers
             }
         }
 
+
         // DELETE
+
+        [HttpDelete("DeleteAtencion/{id}")]
+        public IActionResult DeleteAtencion(int id)
+        {
+            if (servicio.DeleteAtencion(id) == false)
+            {
+                return BadRequest("Problemas al eliminar Atencion");
+            }
+            else
+            {
+                return Ok(servicio.DeleteAtencion(id));
+            }
+        }
+
         [HttpDelete("DeleteDetalle/{id}/{det}")]
         public IActionResult DeleteDetalle(int id, int det)
         {
             if (servicio.DeleteDetalleAtencion(id, det) == false)
             {
-                return BadRequest();
+                return BadRequest("Problemas al eliminar Detalle Atencion");
             }
             else
             {

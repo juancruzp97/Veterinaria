@@ -157,6 +157,7 @@ namespace VeterinariaFrontend
             this.btnAgregarDetalle.TabIndex = 11;
             this.btnAgregarDetalle.Text = "Agregar Detalle";
             this.btnAgregarDetalle.UseVisualStyleBackColor = true;
+            this.btnAgregarDetalle.Click += new System.EventHandler(this.btnAgregarDetalle_Click);
             // 
             // dgvAtencion
             // 
@@ -169,11 +170,11 @@ namespace VeterinariaFrontend
             this.Descripcion,
             this.Importe,
             this.Acciones});
-            this.dgvAtencion.Location = new System.Drawing.Point(140, 226);
+            this.dgvAtencion.Location = new System.Drawing.Point(53, 226);
             this.dgvAtencion.Name = "dgvAtencion";
             this.dgvAtencion.ReadOnly = true;
             this.dgvAtencion.RowTemplate.Height = 25;
-            this.dgvAtencion.Size = new System.Drawing.Size(445, 115);
+            this.dgvAtencion.Size = new System.Drawing.Size(532, 115);
             this.dgvAtencion.TabIndex = 12;
             this.dgvAtencion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAtencion_CellContentClick);
             // 
@@ -182,7 +183,6 @@ namespace VeterinariaFrontend
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Visible = false;
             // 
             // Fecha
             // 
@@ -322,6 +322,7 @@ namespace VeterinariaFrontend
             this.btnActualizar.TabIndex = 25;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            //this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click_1);
             // 
             // FrmAltaAtencion
             // 
