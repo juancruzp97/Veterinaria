@@ -52,23 +52,6 @@ namespace VeterinariaWebApi.Controllers
         }
 
 
-
-
-
-        // GET: api/<AtencionController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<AtencionController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST api/<AtencionController>
         [HttpPost]
         public void Post([FromBody] string value)
@@ -76,15 +59,35 @@ namespace VeterinariaWebApi.Controllers
         }
 
         // PUT api/<AtencionController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("UpdateDetalleAtencion/{id}")]
+        public IActionResult Put(Atencion atencion, int id)
         {
+            if(atencion == null)
+            {
+                return BadRequest();
+            }
+            if (servicio.UpdateAtencion(atencion, id))
+            {
+                return Ok("Atencion Actualizada");
+            }
+            else
+            {
+                return BadRequest("No se pudo Actualizar");
+            }
         }
 
-        // DELETE api/<AtencionController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        // DELETE
+        [HttpDelete("DeleteDetalle/{id}/{det}")]
+        public IActionResult DeleteDetalle(int id, int det)
         {
+            if (servicio.DeleteDetalleAtencion(id, det) == false)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return Ok("Detalle Borrado");
+            }
         }
     }
 }

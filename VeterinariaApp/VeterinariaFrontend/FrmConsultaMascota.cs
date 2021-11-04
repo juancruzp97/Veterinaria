@@ -28,11 +28,15 @@ namespace VeterinariaFrontend
         private async void FrmConsultaMascota_Load(object sender, EventArgs e)
         {
             Habilitar(false);
-            cboMascota.SelectedIndex = -1;
+            //cboMascota.SelectedIndex = -1;
+            cboCliente.DropDownStyle = ComboBoxStyle.DropDownList;
             cboMascota.DropDownStyle = ComboBoxStyle.DropDownList;
             txtNombre.Focus();
             await CargarComboCliente();
-            
+            dgvAtencion.Enabled = true;
+            dgvAtencion.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+            //dgvAtencion.CurrentRow.ReadOnly = false;
+
         }
 
 
@@ -95,7 +99,11 @@ namespace VeterinariaFrontend
                 return;
             }
 
-
+        }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            //int idMascota = 
+            //await DeleteAtencion(idMascota);
         }
 
 
@@ -125,6 +133,8 @@ namespace VeterinariaFrontend
             }
             else
             {
+                
+              
                 dgvAtencion.Rows.Clear();
                 int id = cboCliente.SelectedIndex + 1;
                 oMascota = (Mascota)cboMascota.SelectedItem;
@@ -135,40 +145,107 @@ namespace VeterinariaFrontend
                 cboTipo.SelectedIndex = oMascota.TipoMascota - 1;
 
                 List<Atencion> lista = await ConsultarAtencion(masc);
-                await CargarDgvAsync(lista, masc);
+                for (int i = 0; i < lista.Count; i++)
+                {
+                    oMascota.AgregarAtencion(lista[i]);
+                }
+
+                CargarDgv(lista, masc);
+                dgvAtencion.ReadOnly = false;
+                dgvAtencion.EditMode = DataGridViewEditMode.EditOnKeystroke;
             }
         }
 
         private async void dgvAtencion_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvAtencion.CurrentCell.ColumnIndex == 4)
+            dgvAtencion.EditMode = DataGridViewEditMode.EditOnEnter;
+            dgvAtencion.EditMode = DataGridViewEditMode.EditOnKeystroke;
+            dgvAtencion.CurrentRow.ReadOnly = false;
+            int indice = dgvAtencion.CurrentRow.Index;
+            if (dgvAtencion.CurrentCell.ColumnIndex == 5)
             {
-                int cliente = cboCliente.SelectedIndex + 1;
-                string mascota = cboMascota.Text;
-                int det = Convert.ToInt32(dgvAtencion.CurrentRow.Cells[0].Value);
-                int idMascota = await ConsultarIdMascota();
-                bool compare = await DeleteDetalle(idMascota, det);
-                if (compare == true)
+                
+                int idMascota = oMascota.CodigoMascota;
+                Atencion atencion = new Atencion();
+                atencion.CodAtencion = oMascota.ListaAtencion[indice].CodAtencion;
+                atencion.Descripcion = dgvAtencion.Rows[indice].Cells["Descripcion"].Value.ToString();
+                atencion.Fecha =Convert.ToDateTime(dgvAtencion.Rows[indice].Cells["Fecha"].Value);
+                atencion.Importe =Convert.ToDouble(dgvAtencion.Rows[indice].Cells["Importe"].Value);
+
+                bool check = await UpdateDetalleAtencion(atencion, idMascota);
+
+                if (check)
                 {
-                    dgvAtencion.Rows.Remove(dgvAtencion.CurrentRow);
-                    MessageBox.Show("Detalle Borrado", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //dgvAtencion.Rows.Clear();
+                    MessageBox.Show("Detalle Atencion Actualizado", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);                   
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Error al Actualizar Detalle", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+            }else if (dgvAtencion.CurrentCell.ColumnIndex == 4)
+            {
+                //int indice = dgvAtencion.CurrentRow.Index;
+                int det = Convert.ToInt32(dgvAtencion.CurrentRow.Cells["ID"].Value);
+                int id = oMascota.CodigoMascota;
+                //string delete = await BorrarDetalleAtencion(id,det);
+                bool delete = await BorrarDetalleAtencion(id, det);
+
+                if (delete){
+                    MessageBox.Show("Detalle Atencion Eliminado", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvAtencion.Rows.RemoveAt(indice);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Error al eliminar Detalle", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
                 }
 
             }
         }
 
-        //API
-        private async Task<bool> DeleteDetalle(int idMascota, int det)
+        private async Task<bool> UpdateDetalleAtencion(Atencion atencion, int idMascota)
         {
-            string url = "https://localhost:44310/api/Veterinaria/DeleteDetalle" + "/" + idMascota.ToString() + "/" + det.ToString();
+            string url = "https://localhost:44310/api/Atencion/UpdateDetalleAtencion" + "/" + idMascota.ToString();
+            HttpClient cliente = new HttpClient();
+            string data = JsonConvert.SerializeObject(atencion);
+            StringContent content = new StringContent(data, Encoding.UTF8, "application/json");
+            var resultado = await cliente.PutAsync(url, content);
+            bool succes = true;
+
+            if (resultado.IsSuccessStatusCode)
+            {
+                return succes;
+            }
+            else
+            {
+                succes = false;
+                return succes;
+            }
+        }
+
+
+
+        //API
+        private async Task<bool> BorrarDetalleAtencion(int id, int det)
+        {
+            string url = "https://localhost:44310/api/Atencion/DeleteDetalle" + "/" + id.ToString() + "/" + det.ToString();
             HttpClient cliente = new HttpClient();
             var result = await cliente.DeleteAsync(url);
-            var content = await result.Content.ReadAsStringAsync();
-            var res = JsonConvert.DeserializeObject<bool>(content);
-            //result.IsSuccess = content.IsSuccessStatusCode;
-            //result.ResultJson = res;
-            return res;
+            bool check = true;
+            if (result.IsSuccessStatusCode)
+            {
+                //content = await result.Content.ReadAsStringAsync();
+                return check;
+            }
+            else
+            {
+                check = false;
+                return check;
+            }
         }
         private async Task<List<Atencion>> ConsultarAtencion(int numero)
         {
@@ -202,16 +279,7 @@ namespace VeterinariaFrontend
             int nro = JsonConvert.DeserializeObject<int>(content);
             return nro;
         }
-        private async Task CargarDgvAsync(List<Atencion> lista, int masc)
-        {
-            List<int> det = await ConsultarDetAtencion(masc);
-            int j = 0;
-            for (int i = 0; i < lista.Count; i++)
-            {
-                dgvAtencion.Rows.Add(new object[] { det[j], lista[j].Fecha, lista[j].Descripcion, lista[j].Importe });
-                j++;
-            }
-        }
+       
         private async Task<bool> UpdateMascota(Mascota mascota)
         {
             string url = "https://localhost:44310/api/Mascota/UpdateMascota";
@@ -225,7 +293,16 @@ namespace VeterinariaFrontend
         }
 
         //METODOS
-
+        private void CargarDgv(List<Atencion> lista, int masc)
+        {
+            //List<int> det = await ConsultarDetAtencion(masc);
+            int j = 0;
+            for (int i = 0; i < lista.Count; i++)
+            {
+                dgvAtencion.Rows.Add(new object[] { lista[j].CodAtencion, lista[j].Fecha, lista[j].Descripcion, lista[j].Importe });
+                j++;
+            }
+        }
         private async Task CargarComboMascota(int cbo)
         {
             string url = "https://localhost:44310/api/Mascota/ConsultarMascota" + "/" + cbo.ToString();
@@ -268,8 +345,6 @@ namespace VeterinariaFrontend
             cboMascota.Enabled = x;
             dgvAtencion.Enabled = x;
         }
-
-        
 
        
     }
