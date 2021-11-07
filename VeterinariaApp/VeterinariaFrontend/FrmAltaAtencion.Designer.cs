@@ -46,8 +46,8 @@ namespace VeterinariaFrontend
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Acciones = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Actualizar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.txtMascota = new System.Windows.Forms.TextBox();
@@ -57,7 +57,7 @@ namespace VeterinariaFrontend
             this.label7 = new System.Windows.Forms.Label();
             this.cboTipo = new System.Windows.Forms.ComboBox();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtencion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,7 +141,7 @@ namespace VeterinariaFrontend
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(262, 367);
+            this.btnAgregar.Location = new System.Drawing.Point(171, 367);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(78, 23);
             this.btnAgregar.TabIndex = 10;
@@ -157,6 +157,7 @@ namespace VeterinariaFrontend
             this.btnAgregarDetalle.TabIndex = 11;
             this.btnAgregarDetalle.Text = "Agregar Detalle";
             this.btnAgregarDetalle.UseVisualStyleBackColor = true;
+            this.btnAgregarDetalle.Click += new System.EventHandler(this.btnAgregarDetalle_Click);
             // 
             // dgvAtencion
             // 
@@ -168,12 +169,14 @@ namespace VeterinariaFrontend
             this.Fecha,
             this.Descripcion,
             this.Importe,
-            this.Acciones});
-            this.dgvAtencion.Location = new System.Drawing.Point(140, 226);
+            this.Acciones,
+            this.Actualizar});
+            this.dgvAtencion.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnKeystroke;
+            this.dgvAtencion.Location = new System.Drawing.Point(12, 226);
             this.dgvAtencion.Name = "dgvAtencion";
             this.dgvAtencion.ReadOnly = true;
             this.dgvAtencion.RowTemplate.Height = 25;
-            this.dgvAtencion.Size = new System.Drawing.Size(445, 115);
+            this.dgvAtencion.Size = new System.Drawing.Size(573, 115);
             this.dgvAtencion.TabIndex = 12;
             this.dgvAtencion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAtencion_CellContentClick);
             // 
@@ -182,7 +185,7 @@ namespace VeterinariaFrontend
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Visible = false;
+            this.id.Width = 50;
             // 
             // Fecha
             // 
@@ -195,12 +198,14 @@ namespace VeterinariaFrontend
             this.Descripcion.HeaderText = "Descripcion";
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 150;
             // 
             // Importe
             // 
             this.Importe.HeaderText = "Importe";
             this.Importe.Name = "Importe";
             this.Importe.ReadOnly = true;
+            this.Importe.Width = 80;
             // 
             // Acciones
             // 
@@ -209,10 +214,21 @@ namespace VeterinariaFrontend
             this.Acciones.ReadOnly = true;
             this.Acciones.Text = "Quitar";
             this.Acciones.UseColumnTextForButtonValue = true;
+            this.Acciones.Width = 80;
+            // 
+            // Actualizar
+            // 
+            this.Actualizar.HeaderText = "Actualizar";
+            this.Actualizar.Name = "Actualizar";
+            this.Actualizar.ReadOnly = true;
+            this.Actualizar.Text = "Actualizar";
+            this.Actualizar.ToolTipText = "Actualizar";
+            this.Actualizar.UseColumnTextForButtonValue = true;
+            this.Actualizar.Width = 80;
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(356, 367);
+            this.btnEditar.Location = new System.Drawing.Point(262, 367);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(78, 23);
             this.btnEditar.TabIndex = 13;
@@ -220,18 +236,9 @@ namespace VeterinariaFrontend
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(454, 367);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(78, 23);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "Borrar";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(576, 367);
+            this.button5.Location = new System.Drawing.Point(454, 367);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(78, 23);
             this.button5.TabIndex = 15;
@@ -240,7 +247,7 @@ namespace VeterinariaFrontend
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(698, 367);
+            this.btnSalir.Location = new System.Drawing.Point(550, 367);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(78, 23);
             this.btnSalir.TabIndex = 16;
@@ -295,10 +302,10 @@ namespace VeterinariaFrontend
             // 
             this.cboTipo.FormattingEnabled = true;
             this.cboTipo.Items.AddRange(new object[] {
-            "1- Perro",
-            "2- Gato",
-            "3- Araña",
-            "4- Iguana"});
+            "Perro",
+            " Gato",
+            " Araña",
+            " Iguana"});
             this.cboTipo.Location = new System.Drawing.Point(411, 84);
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(121, 23);
@@ -314,21 +321,22 @@ namespace VeterinariaFrontend
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // btnActualizar
+            // btnBorrar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(163, 367);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(78, 23);
-            this.btnActualizar.TabIndex = 25;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Location = new System.Drawing.Point(356, 367);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(78, 23);
+            this.btnBorrar.TabIndex = 25;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_ClickAsync);
             // 
             // FrmAltaAtencion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(828, 440);
-            this.Controls.Add(this.btnActualizar);
+            this.ClientSize = new System.Drawing.Size(803, 437);
+            this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.cboTipo);
             this.Controls.Add(this.label7);
@@ -338,7 +346,6 @@ namespace VeterinariaFrontend
             this.Controls.Add(this.txtMascota);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dgvAtencion);
             this.Controls.Add(this.btnAgregarDetalle);
@@ -376,7 +383,6 @@ namespace VeterinariaFrontend
         private System.Windows.Forms.Button btnAgregarDetalle;
         private System.Windows.Forms.DataGridView dgvAtencion;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.TextBox txtMascota;
@@ -386,11 +392,12 @@ namespace VeterinariaFrontend
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cboTipo;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.DataGridViewButtonColumn Acciones;
+        private System.Windows.Forms.DataGridViewButtonColumn Actualizar;
+        private System.Windows.Forms.Button btnBorrar;
     }
 }

@@ -19,8 +19,7 @@ namespace VeterinariaFrontend
 
         private void nuevaAtencionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAgregarMascota frmAgregarMascota = new FrmAgregarMascota();
-            frmAgregarMascota.ShowDialog();
+
         }
 
         private void consultarMascotaToolStripMenuItem_Click(object sender, EventArgs e)

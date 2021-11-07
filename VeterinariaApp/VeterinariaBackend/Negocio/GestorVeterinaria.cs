@@ -23,6 +23,7 @@ namespace VeterinariaBackend.Negocio
         //    _mascotaDao = factory.CrearMascotaDao();
         //}
 
+
         public bool AgregarMascotaAtencion(Mascota mascota, int id)
         {
             return _mascotaDao.AgregarMascotaAtencion(mascota, id);
@@ -33,9 +34,9 @@ namespace VeterinariaBackend.Negocio
             return _mascotaDao.InsertarMascota(oMascota, cod);
         }
 
-        public bool InsertarAtencion(int codAtencion, int codMascota, DateTime fecha, string descp, double importe)
+        public bool InsertarAtencion(Mascota oMascota)
         {
-            return _mascotaDao.InsertarAtencion(codAtencion, codMascota, fecha, descp, importe);
+            return _mascotaDao.InsertarAtencion(oMascota);
         }
 
         public List<Clientes> ObtenerClientes()
@@ -91,5 +92,14 @@ namespace VeterinariaBackend.Negocio
             return _mascotaDao.UpdateMascota(mascota);
         }
 
+        public bool InsertarDetalleAtencion(List<Atencion> atencion, int id)
+        {
+            return _mascotaDao.InsertarDetalleAtencion(atencion,id);
+        }
+
+        //public bool InsertarDetalleAtencion(List<Atencion> atencion)
+        //{
+        //    return _mascotaDao.InsertarDetalleAtencion(atencion);
+        //}
     }
 }
