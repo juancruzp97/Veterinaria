@@ -24,11 +24,7 @@ namespace VeterinariaWebApi.Controllers
 
 
         // GET: api/<MascotaController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+
 
 
         [HttpGet("GetIdMascota/{id}/{nombre}")]
@@ -75,6 +71,9 @@ namespace VeterinariaWebApi.Controllers
 
         }
 
+
+
+
         [HttpPost("AgregarMascota/{id}")]
         public IActionResult PostMascota(Mascota oMascota, int id)
         {
@@ -82,7 +81,7 @@ namespace VeterinariaWebApi.Controllers
             {
                 return BadRequest();
             }
-            if (servicio.InsertarMascota(oMascota, id))
+            if (servicio.AgregarMascotaAtencion(oMascota, id))
             {
                 return Ok("Ok");
             }

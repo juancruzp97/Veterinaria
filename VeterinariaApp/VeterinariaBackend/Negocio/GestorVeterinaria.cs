@@ -23,6 +23,7 @@ namespace VeterinariaBackend.Negocio
         //    _mascotaDao = factory.CrearMascotaDao();
         //}
 
+
         public bool AgregarMascotaAtencion(Mascota mascota, int id)
         {
             return _mascotaDao.AgregarMascotaAtencion(mascota, id);
@@ -91,5 +92,14 @@ namespace VeterinariaBackend.Negocio
             return _mascotaDao.UpdateMascota(mascota);
         }
 
+        public bool InsertarDetalleAtencion(List<Atencion> atencion, int id)
+        {
+            return _mascotaDao.InsertarDetalleAtencion(atencion,id);
+        }
+
+        //public bool InsertarDetalleAtencion(List<Atencion> atencion)
+        //{
+        //    return _mascotaDao.InsertarDetalleAtencion(atencion);
+        //}
     }
 }

@@ -51,6 +51,18 @@ namespace VeterinariaWebApi.Controllers
             }
         }
 
+        [HttpGet("ProximoDetalle/{id}")]
+        public IActionResult ProximoDetalle(int id)
+        {
+            if (servicio.ProximoDetalle(id) <= 0)
+            {
+                return BadRequest("Error al consultar Proximo Detalle");
+            }
+            else
+            {
+                return Ok(servicio.ProximoDetalle(id));
+            }
+        }
 
         // POST api/<AtencionController>
         [HttpPost("InsertarAtencion")]
@@ -63,6 +75,19 @@ namespace VeterinariaWebApi.Controllers
             else
             {
                 return Ok("Atencion agregada con Exito");
+            }
+        }
+
+        [HttpPost ("InsertarDetalleAtencion/{id}")]
+        public IActionResult InsertarDetalleAtencion(List<Atencion> atencion, int id)
+        {
+            if(servicio.InsertarDetalleAtencion(atencion, id) == false)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return Ok();
             }
         }
 

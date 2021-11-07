@@ -27,6 +27,123 @@ namespace VeterinariaBackend.Acceso_a_Datos
             }
             return instancia;
         }
+
+        //                             MASCOTA
+
+        //INSERT
+        public bool InsertarMascota(string spAltaM, Mascota mascota, int cod)
+        {
+            bool flag = true;
+
+            SqlConnection cnn = new SqlConnection(conexionString);
+            SqlTransaction transaccion = null;
+
+            try
+            {
+                cnn.Open();
+                transaccion = cnn.BeginTransaction();
+
+                SqlCommand cmd = new SqlCommand(spAltaM, cnn, transaccion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nommascota", mascota.Nombre);
+                cmd.Parameters.AddWithValue("@edad", mascota.Edad);
+                cmd.Parameters.AddWithValue("@tipo", mascota.TipoMascota);
+                cmd.Parameters.AddWithValue("@cliente", cod);
+
+                cmd.ExecuteNonQuery();
+                transaccion.Commit();
+
+
+            }
+            catch (Exception)
+            {
+                transaccion.Rollback();
+                flag = false;
+
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
+            }
+
+            return flag;
+        }
+        public bool InsertarSql(Mascota oMascota, string spMascota, string spAtencion, int id)
+        {
+            bool flag = true;
+
+            SqlConnection cnn = new SqlConnection(conexionString);
+            SqlTransaction transaccion = null;
+
+
+            try
+            {
+                cnn.Open();
+                transaccion = cnn.BeginTransaction();
+
+                SqlCommand cmd = new SqlCommand(spMascota, cnn, transaccion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nommascota", oMascota.Nombre);
+                cmd.Parameters.AddWithValue("@edad", oMascota.Edad);
+                cmd.Parameters.AddWithValue("@tipo", oMascota.TipoMascota);
+                cmd.Parameters.AddWithValue("@cliente", id);
+
+                SqlParameter param = new SqlParameter();
+                param.ParameterName = "@cod_mascota";
+                param.SqlDbType = SqlDbType.Int;
+
+                param.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(param);
+                cmd.ExecuteNonQuery();
+
+                int codMascota = (int)param.Value;
+                oMascota.CodigoMascota = codMascota;
+                //int codMascota = 15;
+                //int nroAtencion = 0;
+                //transaction.Commit();
+
+
+                foreach (Atencion aten in oMascota.ListaAtencion)
+                {
+
+                    SqlCommand cmd2 = new SqlCommand(spAtencion, cnn);
+
+                    cmd2.CommandType = CommandType.StoredProcedure;
+                    cmd2.Transaction = transaccion;
+                    cmd2.Parameters.AddWithValue("@cod_atencion", aten.CodAtencion);
+                    cmd2.Parameters.AddWithValue("@cod_mascota", oMascota.CodigoMascota);
+                    cmd2.Parameters.AddWithValue("@fecha", aten.Fecha);
+                    cmd2.Parameters.AddWithValue("@descripcion", aten.Descripcion);
+                    cmd2.Parameters.AddWithValue("@importe", aten.Importe);
+                    cmd2.ExecuteNonQuery();
+                }
+
+                transaccion.Commit();
+            }
+            catch
+            {
+                transaccion.Rollback();
+
+
+                flag = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
+            }
+
+            return flag;
+
+
+        }
+
+        //SELECT
         public int GetIdMascota(string spId, int cliente, string nombre)
         {
             SqlConnection cnn = new SqlConnection(conexionString);
@@ -62,7 +179,135 @@ namespace VeterinariaBackend.Acceso_a_Datos
             }
             return id;
 
+        }      
+        public List<Mascota> ConsultarMascotaCliente(string spMasCliente, int cod)
+        {
+            List<Mascota> lista = new List<Mascota>();
+            SqlConnection cnn = new SqlConnection(conexionString);
+            try
+            {
+                cnn.Open();
+                SqlCommand cmd = new SqlCommand(spMasCliente, cnn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@cod", cod);
+
+                DataTable tabla = new DataTable();
+                tabla.Load(cmd.ExecuteReader());
+
+                cnn.Close();
+
+
+                foreach (DataRow row in tabla.Rows)
+                {
+                    Mascota mascota = new Mascota();
+                    mascota.CodigoMascota = Convert.ToInt32(row["cod_mascota"].ToString());
+                    mascota.Nombre = row["nombre"].ToString();
+                    mascota.Edad = Convert.ToInt32(row["edad"].ToString());
+                    mascota.TipoMascota = Convert.ToInt32(row["tipo"].ToString());
+                    lista.Add(mascota);
+                }
+            }
+            catch
+            {
+                return lista;
+            }
+
+            return lista;
         }
+        public DataTable MascotaPorNombre(string nombre)
+        {
+            // List<Mascota> lista = new List<Mascota>();
+            SqlConnection cnn = new SqlConnection(conexionString);
+
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand("SP_MASCOTA_NOMBRE", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@nom", nombre);
+
+            DataTable tabla = new DataTable();
+            tabla.Load(cmd.ExecuteReader());
+
+            cnn.Close();
+            return tabla;
+        }
+
+        //DELETE
+        public bool DeleteMascota(int idMascota)
+        {
+            SqlConnection cnn = new SqlConnection(conexionString);
+            SqlTransaction transaccion = null;
+            bool flag = true;
+
+            try
+            {
+                cnn.Open();
+                transaccion = cnn.BeginTransaction();
+                SqlCommand cmd = new SqlCommand("SP_DELETE_MASCOTA", cnn, transaccion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idmascota", idMascota);
+                cmd.ExecuteNonQuery();
+
+                transaccion.Commit();
+            }
+            catch
+            {
+                transaccion.Rollback();
+                flag = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
+            }
+
+            return flag;
+        }
+
+        //UPDATE
+        public bool UpdateMascota(string spUpdate, Mascota mascota)
+        {
+            bool flag = true;
+            SqlConnection cnn = new SqlConnection(conexionString);
+            SqlTransaction transaccion = null;
+
+            try
+            {
+                cnn.Open();
+                transaccion = cnn.BeginTransaction();
+                SqlCommand cmd = new SqlCommand(spUpdate, cnn, transaccion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@cod", mascota.CodigoMascota);
+                cmd.Parameters.AddWithValue("@nom", mascota.Nombre);
+                cmd.Parameters.AddWithValue("@edad", mascota.Edad);
+                cmd.Parameters.AddWithValue("@tipo", mascota.TipoMascota);
+
+                cmd.ExecuteNonQuery();
+
+                transaccion.Commit();
+            }
+            catch (Exception)
+            {
+                transaccion.Rollback();
+                flag = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
+            }
+
+            return flag;
+
+        }
+
+
+        //                             ATENCION
+
+        //SELECT
         public List<int> GetIdAtencion(int idMascota)
         {
             SqlConnection cnn = new SqlConnection(conexionString);
@@ -100,7 +345,7 @@ namespace VeterinariaBackend.Acceso_a_Datos
         public int ProximoDetalle(int idMascota)
         {
             SqlConnection cnn = new SqlConnection(conexionString);
-            int detalle = 1;
+            int detalle = 0;
             try
             {
                 cnn.Open();
@@ -115,11 +360,12 @@ namespace VeterinariaBackend.Acceso_a_Datos
                 cmd.Parameters.Add(param);
                 cmd.ExecuteNonQuery();
 
-                return (int)param.Value;
+                detalle = (int)param.Value;
+
             }
             catch
             {
-                return detalle;
+                detalle = 0;
             }
             finally
             {
@@ -128,119 +374,36 @@ namespace VeterinariaBackend.Acceso_a_Datos
                     cnn.Close();
                 }
             }
+            return detalle;
         }
-
-        public bool InsertarMascota(string spAltaM,Mascota mascota, int cod)
+        public List<Atencion> ObtenerAtencion(string spAtencion, int cod)
         {
-            bool flag = true;
-
+            List<Atencion> lista = new List<Atencion>();
             SqlConnection cnn = new SqlConnection(conexionString);
-            SqlTransaction transaccion = null;
 
-            try
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand(spAtencion, cnn);
+            DataTable tabla = new DataTable();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@cod", cod);
+            tabla.Load(cmd.ExecuteReader());
+            cnn.Close();
+
+            foreach (DataRow filas in tabla.Rows)
             {
-                cnn.Open();
-                transaccion = cnn.BeginTransaction();
+                Atencion oAtencion = new Atencion();
+                oAtencion.CodAtencion = Convert.ToInt32(filas["cod_atencion"].ToString());
+                oAtencion.Fecha = Convert.ToDateTime(filas["fecha"].ToString());
+                oAtencion.Descripcion = filas["descripcion"].ToString();
+                oAtencion.Importe = Convert.ToDouble(filas["importe"].ToString());
 
-                SqlCommand cmd = new SqlCommand(spAltaM, cnn, transaccion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nommascota",mascota.Nombre);
-                cmd.Parameters.AddWithValue("@edad", mascota.Edad);
-                cmd.Parameters.AddWithValue("@tipo",mascota.TipoMascota);
-                cmd.Parameters.AddWithValue("@cliente", cod);
-
-                cmd.ExecuteNonQuery();
-                transaccion.Commit();
-
-
-            }
-            catch (Exception)
-            {
-                transaccion.Rollback();
-                flag = false;
-
-            }
-            finally
-            {
-                if (cnn != null && cnn.State == ConnectionState.Open)
-                {
-                    cnn.Close();
-                }
+                lista.Add(oAtencion);
             }
 
-            return flag;
+            return lista;
         }
 
-        public bool InsertarSql(Mascota oMascota, string spMascota, string spAtencion, int id)
-        {
-            bool flag = true;
-
-            SqlConnection cnn = new SqlConnection(conexionString);
-            SqlTransaction transaccion = null;
-
-
-            try
-            {
-                cnn.Open();
-                transaccion = cnn.BeginTransaction();
-
-                SqlCommand cmd = new SqlCommand(spMascota, cnn, transaccion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nommascota", oMascota.Nombre);
-                cmd.Parameters.AddWithValue("@edad", oMascota.Edad);
-                cmd.Parameters.AddWithValue("@tipo", oMascota.TipoMascota);
-                cmd.Parameters.AddWithValue("@cliente", id);
-
-                SqlParameter param = new SqlParameter();
-                param.ParameterName = "@cod_mascota";
-                param.SqlDbType = SqlDbType.Int;
-
-                param.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(param);
-                cmd.ExecuteNonQuery();
-
-                int codMascota = (int)param.Value;
-                //int codMascota = 15;
-                int nroAtencion = 0;
-                //transaction.Commit();
-
-
-                foreach (Atencion aten in oMascota.ListaAtencion)
-                {
-
-                    SqlCommand cmd2 = new SqlCommand(spAtencion, cnn);
-
-                    cmd2.CommandType = CommandType.StoredProcedure;
-                    cmd2.Transaction = transaccion;
-                    cmd2.Parameters.AddWithValue("@cod_atencion", ++nroAtencion);
-                    cmd2.Parameters.AddWithValue("@cod_mascota", codMascota);
-                    cmd2.Parameters.AddWithValue("@fecha", aten.Fecha);
-                    cmd2.Parameters.AddWithValue("@descripcion", aten.Descripcion);
-                    cmd2.Parameters.AddWithValue("@importe", aten.Importe);
-                    cmd2.ExecuteNonQuery();
-                }
-
-                transaccion.Commit();
-        }
-            catch
-            {
-                transaccion.Rollback();
-
-
-                flag = false;
-            }
-            finally
-            {
-                if (cnn != null && cnn.State == ConnectionState.Open)
-                {
-                    cnn.Close();
-                }
-            }
-
-            return flag;
-
-
-        }
+        //INSERT
         public bool InsertarAtencion(Mascota oMascota)
         {
             SqlConnection cnn = new SqlConnection(conexionString);
@@ -281,32 +444,38 @@ namespace VeterinariaBackend.Acceso_a_Datos
 
             return flag;
         }
-
-        public bool UpdateMascota(string spUpdate, Mascota mascota)
+        public bool InsertarDetalleAtencion(List<Atencion> atencion,int idM, string spDetalleA)
         {
-            bool flag = true;
             SqlConnection cnn = new SqlConnection(conexionString);
             SqlTransaction transaccion = null;
+            bool flag = true;
 
             try
             {
                 cnn.Open();
                 transaccion = cnn.BeginTransaction();
-                SqlCommand cmd = new SqlCommand(spUpdate, cnn, transaccion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@cod", mascota.CodigoMascota);
-                cmd.Parameters.AddWithValue("@nom",mascota.Nombre);
-                cmd.Parameters.AddWithValue("@edad",mascota.Edad);
-                cmd.Parameters.AddWithValue("@tipo",mascota.TipoMascota);
 
-                cmd.ExecuteNonQuery();
+                for (int i = 0; i < atencion.Count; i++)
+                {
+                    SqlCommand cmd = new SqlCommand(spDetalleA, cnn, transaccion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@cod_atencion", atencion[i].CodAtencion);
+                    cmd.Parameters.AddWithValue("@cod_mascota",idM);
+                    cmd.Parameters.AddWithValue("@fecha", atencion[i].Fecha);
+                    cmd.Parameters.AddWithValue("@descripcion",atencion[i].Descripcion);
+                    cmd.Parameters.AddWithValue("@importe",atencion[i].Importe);
+
+                    cmd.ExecuteNonQuery();
+                }
 
                 transaccion.Commit();
+             
             }
             catch (Exception)
             {
                 transaccion.Rollback();
                 flag = false;
+
             }
             finally
             {
@@ -315,144 +484,11 @@ namespace VeterinariaBackend.Acceso_a_Datos
                     cnn.Close();
                 }
             }
-
-            return flag;
-
-        }
-
-        public List<Clientes> ObtenerClientes(string spCliente)
-        {
-            List<Clientes> lista = new List<Clientes>();
-            SqlConnection cnn = new SqlConnection(conexionString);
-
-            cnn.Open();
-            SqlCommand cmd = new SqlCommand(spCliente, cnn);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            DataTable tabla = new DataTable();
-            tabla.Load(cmd.ExecuteReader());
-
-            cnn.Close();
-
-            foreach (DataRow row in tabla.Rows)
-            {
-                Clientes cliente = new Clientes();
-                cliente.Codigo = Convert.ToInt32(row["cod_cliente"].ToString());
-                cliente.Nombre = row["nombre"].ToString();
-                cliente.Sexo = row["sexo"].ToString().Equals("M");
-
-                lista.Add(cliente);
-            }
-
-            return lista;
-
-        }
-        public List<Atencion> ObtenerAtencion(string spAtencion, int cod)
-        {
-            List<Atencion> lista = new List<Atencion>();
-            SqlConnection cnn = new SqlConnection(conexionString);
-
-            cnn.Open();
-            SqlCommand cmd = new SqlCommand(spAtencion, cnn);
-            DataTable tabla = new DataTable();
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@cod", cod);
-            tabla.Load(cmd.ExecuteReader());
-            cnn.Close();
-
-            foreach (DataRow filas in tabla.Rows)
-            {
-                Atencion oAtencion = new Atencion();
-                oAtencion.CodAtencion = Convert.ToInt32(filas["cod_atencion"].ToString());
-                oAtencion.Fecha = Convert.ToDateTime(filas["fecha"].ToString());
-                oAtencion.Descripcion = filas["descripcion"].ToString();
-                oAtencion.Importe = Convert.ToDouble(filas["importe"].ToString());
-
-                lista.Add(oAtencion);
-            }
-
-            return lista;
-        }
-
-        public List<Mascota> ConsultarMascotaCliente(string spMasCliente, int cod)
-        {
-            List<Mascota> lista = new List<Mascota>();
-            SqlConnection cnn = new SqlConnection(conexionString);
-
-            cnn.Open();
-            SqlCommand cmd = new SqlCommand(spMasCliente, cnn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@cod", cod);
-
-            DataTable tabla = new DataTable();
-            tabla.Load(cmd.ExecuteReader());
-
-            cnn.Close();
-
-
-            foreach (DataRow row in tabla.Rows)
-            {
-                Mascota mascota = new Mascota();
-                mascota.CodigoMascota = Convert.ToInt32(row["cod_mascota"].ToString());
-                mascota.Nombre = row["nombre"].ToString();
-                mascota.Edad = Convert.ToInt32(row["edad"].ToString());
-                mascota.TipoMascota = Convert.ToInt32(row["tipo"].ToString());
-                lista.Add(mascota);
-            }
-
-            return lista;
-        }
-
-        public DataTable MascotaPorNombre(string nombre)
-        {
-            // List<Mascota> lista = new List<Mascota>();
-            SqlConnection cnn = new SqlConnection(conexionString);
-
-            cnn.Open();
-            SqlCommand cmd = new SqlCommand("SP_MASCOTA_NOMBRE", cnn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@nom", nombre);
-
-            DataTable tabla = new DataTable();
-            tabla.Load(cmd.ExecuteReader());
-
-            cnn.Close();
-            return tabla;
-        }
-
-        public bool DeleteMascota(int idMascota)
-        {
-            SqlConnection cnn = new SqlConnection(conexionString);
-            SqlTransaction transaccion = null;
-            bool flag = true;
-
-            try
-            {
-                cnn.Open();
-                transaccion = cnn.BeginTransaction();
-                SqlCommand cmd = new SqlCommand("SP_DELETE_MASCOTA", cnn, transaccion);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idmascota", idMascota);
-                cmd.ExecuteNonQuery();
-
-                transaccion.Commit();
-            }
-            catch
-            {
-                transaccion.Rollback();
-                flag = false;
-            }
-            finally
-            {
-                if (cnn != null && cnn.State == ConnectionState.Open)
-                {
-                    cnn.Close();
-                }
-            }
-
             return flag;
         }
 
+
+        //DELETE
         public bool DeleteAtencion(int idMascota)
         {
             SqlConnection cnn = new SqlConnection(conexionString);
@@ -487,7 +523,7 @@ namespace VeterinariaBackend.Acceso_a_Datos
 
             return flag;
         }
-        public bool DeleteDetalleAtencion(int idMascota, int idDetalle)
+        public bool DeleteDetalleAtencion(int idDetalle, int idMascota)
         {
             SqlConnection cnn = new SqlConnection(conexionString);
             SqlTransaction transaccion = null;
@@ -522,7 +558,9 @@ namespace VeterinariaBackend.Acceso_a_Datos
 
             return flag;
         }
-        public bool UpdateAtencion(string spUpAt,Atencion atencion, int id)
+
+        //UPDATE
+        public bool UpdateAtencion(string spUpAt, Atencion atencion, int id)
         {
             SqlConnection cnn = new SqlConnection(conexionString);
             SqlTransaction transaccion = null;
@@ -558,6 +596,46 @@ namespace VeterinariaBackend.Acceso_a_Datos
             }
             return flag;
         }
+
+
+        //                          CLIENTES
+        public List<Clientes> ObtenerClientes(string spCliente)
+        {
+            List<Clientes> lista = new List<Clientes>();
+            SqlConnection cnn = new SqlConnection(conexionString);
+
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand(spCliente, cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            DataTable tabla = new DataTable();
+            tabla.Load(cmd.ExecuteReader());
+
+            cnn.Close();
+
+            foreach (DataRow row in tabla.Rows)
+            {
+                Clientes cliente = new Clientes();
+                cliente.Codigo = Convert.ToInt32(row["cod_cliente"].ToString());
+                cliente.Nombre = row["nombre"].ToString();
+                cliente.Sexo = row["sexo"].ToString().Equals("M");
+
+                lista.Add(cliente);
+            }
+
+            return lista;
+
+        }
+        
+
+      
+
+     
+
+      
+
+        
+        
 
     
 }

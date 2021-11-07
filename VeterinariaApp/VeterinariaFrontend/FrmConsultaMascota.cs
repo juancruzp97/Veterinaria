@@ -193,9 +193,7 @@ namespace VeterinariaFrontend
 
         private async void dgvAtencion_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dgvAtencion.EditMode = DataGridViewEditMode.EditOnEnter;
-            dgvAtencion.EditMode = DataGridViewEditMode.EditOnKeystroke;
-            dgvAtencion.CurrentRow.ReadOnly = false;
+          
             int indice = dgvAtencion.CurrentRow.Index;
             if (dgvAtencion.CurrentCell.ColumnIndex == 5)
             {

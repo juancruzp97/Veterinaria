@@ -49,9 +49,7 @@ D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\V
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\bin\Debug\net5.0-windows\VeterinariaBackend.pdb
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.csproj.AssemblyReference.cache
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.Form1.resources
-D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.FrmAgregarMascota.resources
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.FrmAltaAtencion.resources
-D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaApp.FrmAltaMascota.resources
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.FrmConsultaMascota.resources
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.login.resources
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.Properties.Resources.resources
