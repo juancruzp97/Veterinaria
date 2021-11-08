@@ -34,12 +34,6 @@ namespace VeterinariaFrontend
             this.cboMascota = new System.Windows.Forms.ComboBox();
             this.Mascota = new System.Windows.Forms.Label();
             this.dgvAtencion = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quitar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -51,6 +45,12 @@ namespace VeterinariaFrontend
             this.label4 = new System.Windows.Forms.Label();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Importe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quitar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Editar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAtencion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,52 +109,6 @@ namespace VeterinariaFrontend
             this.dgvAtencion.Size = new System.Drawing.Size(624, 150);
             this.dgvAtencion.TabIndex = 5;
             this.dgvAtencion.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAtencion_CellContentClick);
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            // 
-            // Importe
-            // 
-            this.Importe.HeaderText = "Importe";
-            this.Importe.Name = "Importe";
-            this.Importe.ReadOnly = true;
-            // 
-            // Quitar
-            // 
-            this.Quitar.HeaderText = "Quitar";
-            this.Quitar.Name = "Quitar";
-            this.Quitar.ReadOnly = true;
-            this.Quitar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Quitar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Quitar.Text = "Quitar";
-            this.Quitar.ToolTipText = "Quitar";
-            this.Quitar.UseColumnTextForButtonValue = true;
-            // 
-            // Editar
-            // 
-            this.Editar.HeaderText = "Editar";
-            this.Editar.Name = "Editar";
-            this.Editar.ReadOnly = true;
-            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Editar.Text = "Editar";
-            this.Editar.ToolTipText = "Editar";
-            this.Editar.UseColumnTextForButtonValue = true;
             // 
             // btnEliminar
             // 
@@ -259,11 +213,57 @@ namespace VeterinariaFrontend
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // Importe
+            // 
+            this.Importe.HeaderText = "Importe";
+            this.Importe.Name = "Importe";
+            this.Importe.ReadOnly = true;
+            // 
+            // Quitar
+            // 
+            this.Quitar.HeaderText = "Quitar";
+            this.Quitar.Name = "Quitar";
+            this.Quitar.ReadOnly = true;
+            this.Quitar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Quitar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Quitar.Text = "Quitar";
+            this.Quitar.ToolTipText = "Quitar";
+            this.Quitar.UseColumnTextForButtonValue = true;
+            // 
+            // Editar
+            // 
+            this.Editar.HeaderText = "Actualizar";
+            this.Editar.Name = "Editar";
+            this.Editar.ReadOnly = true;
+            this.Editar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Editar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Editar.Text = "Actualizar";
+            this.Editar.ToolTipText = "Actualizar";
+            this.Editar.UseColumnTextForButtonValue = true;
+            // 
             // FrmConsultaMascota
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(668, 351);
+            this.ClientSize = new System.Drawing.Size(703, 366);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.cboTipo);
@@ -306,12 +306,12 @@ namespace VeterinariaFrontend
         private System.Windows.Forms.ComboBox cboTipo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Importe;
         private System.Windows.Forms.DataGridViewButtonColumn Quitar;
         private System.Windows.Forms.DataGridViewButtonColumn Editar;
-        private System.Windows.Forms.Button btnCancelar;
     }
 }

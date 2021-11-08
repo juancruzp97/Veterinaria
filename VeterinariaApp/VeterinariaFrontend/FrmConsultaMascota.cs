@@ -44,6 +44,7 @@ namespace VeterinariaFrontend
         //BOTONES
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            dgvAtencion.Enabled = false;
             HabilitarOtro(false);
             Habilitar(true);
         }
@@ -88,6 +89,7 @@ namespace VeterinariaFrontend
                 MessageBox.Show("Mascota Actualizada!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Habilitar(false);
                 HabilitarOtro(true);
+                dgvAtencion.Enabled = true;
                 return;
 
             }
@@ -96,6 +98,7 @@ namespace VeterinariaFrontend
                 MessageBox.Show("Problemas al Actualizar Mascota!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Habilitar(false);
                 HabilitarOtro(true);
+                dgvAtencion.Enabled = true;
                 return;
             }
 
@@ -113,6 +116,7 @@ namespace VeterinariaFrontend
                 {
                     MessageBox.Show("Mascota Eliminada", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     limpiar();
+                    cboTipo.SelectedIndex = -1;
                     return;
                 }
                 else
@@ -180,20 +184,31 @@ namespace VeterinariaFrontend
                 cboTipo.SelectedIndex = oMascota.TipoMascota - 1;
 
                 List<Atencion> lista = await ConsultarAtencion(masc);
-                for (int i = 0; i < lista.Count; i++)
+                if(lista == null)
                 {
-                    oMascota.AgregarAtencion(lista[i]);
+                    return;
                 }
+                else
+                {
+                    for (int i = 0; i < lista.Count; i++)
+                    {
+                        oMascota.AgregarAtencion(lista[i]);
+                    }
 
-                CargarDgv(lista, masc);
-                dgvAtencion.ReadOnly = false;
-                dgvAtencion.EditMode = DataGridViewEditMode.EditOnKeystroke;
+                    CargarDgv(lista, masc);
+                    dgvAtencion.ReadOnly = false;
+                    dgvAtencion.EditMode = DataGridViewEditMode.EditOnKeystroke;
+                }
+              
             }
         }
 
         private async void dgvAtencion_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-          
+            dgvAtencion.CurrentRow.ReadOnly = false;
+            dgvAtencion.EditMode = DataGridViewEditMode.EditOnEnter;
+            dgvAtencion.EditMode = DataGridViewEditMode.EditOnKeystroke;
+
             int indice = dgvAtencion.CurrentRow.Index;
             if (dgvAtencion.CurrentCell.ColumnIndex == 5)
             {
@@ -319,8 +334,17 @@ namespace VeterinariaFrontend
             HttpClient cliente = new HttpClient();
             var result = await cliente.GetAsync(url);
             var content = await result.Content.ReadAsStringAsync();
-            List<Atencion> lista = JsonConvert.DeserializeObject<List<Atencion>>(content);
-            return lista;
+            if (result.IsSuccessStatusCode == false)
+            {
+                return null;
+            }
+            else
+            {
+                List<Atencion> lista = JsonConvert.DeserializeObject<List<Atencion>>(content);
+
+                return lista;
+            }
+            
         }
         private async Task<List<int>> ConsultarDetAtencion(int numero)
         {

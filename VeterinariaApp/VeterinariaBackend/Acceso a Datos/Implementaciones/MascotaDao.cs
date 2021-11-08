@@ -100,9 +100,9 @@ namespace VeterinariaBackend.Acceso_a_Datos.Implementaciones
             return HelperDao.GetInstance().DeleteAtencion(idMascota);
         }
 
-        public bool DeleteDetalleAtencion(int idDetalle, int idMascota)
+        public bool DeleteDetalleAtencion(int idMascota, int idDetalle)
         {
-            return HelperDao.GetInstance().DeleteDetalleAtencion(idDetalle, idMascota);
+            return HelperDao.GetInstance().DeleteDetalleAtencion(idMascota, idDetalle); ;
         }
 
      

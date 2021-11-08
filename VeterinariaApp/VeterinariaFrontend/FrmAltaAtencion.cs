@@ -221,11 +221,18 @@ namespace VeterinariaFrontend
             int id = await GetIdMascota(cboCliente.SelectedIndex + 1, lstBoxMascota.Text);
             List<Atencion> lstA = await ObtenerAtenciones(id);
 
-           
-            for (int i = 0; i < lstA.Count; i++)
+           if(lstA == null)
             {
-                dgvAtencion.Rows.Add(new object[] { lstA[i].CodAtencion, lstA[i].Fecha, lstA[i].Descripcion, lstA[i].Importe });
+                return;
             }
+            else
+            {
+                for (int i = 0; i < lstA.Count; i++)
+                {
+                    dgvAtencion.Rows.Add(new object[] { lstA[i].CodAtencion, lstA[i].Fecha, lstA[i].Descripcion, lstA[i].Importe });
+                }
+            }
+            
         }
 
         private async Task<List<Atencion>> ObtenerAtenciones(int id)
@@ -234,9 +241,18 @@ namespace VeterinariaFrontend
             HttpClient cliente = new HttpClient();
             var result = await cliente.GetAsync(url);
             var content = await result.Content.ReadAsStringAsync();
-            List<Atencion> lst = JsonConvert.DeserializeObject<List<Atencion>>(content);
+            if(result.IsSuccessStatusCode == false)
+            {
+                return null;
+            }
+            else
+            {
+                List<Atencion> lst = JsonConvert.DeserializeObject<List<Atencion>>(content);
 
-            return lst;
+                return lst;
+            }
+
+            
         }
 
         //API
@@ -318,9 +334,9 @@ namespace VeterinariaFrontend
                 return succes;
             }
         }
-        private async Task<bool> EliminarDetalle(int atencion, int mascota)
+        private async Task<bool> EliminarDetalle(int mascota, int atencion)
         {
-            string url = "https://localhost:44310/api/Atencion/DeleteDetalle" + "/" + atencion.ToString() + "/" + mascota.ToString();
+            string url = "https://localhost:44310/api/Atencion/DeleteDetalle" + "/" + mascota.ToString() + "/" + atencion.ToString();
             HttpClient cliente = new HttpClient();
             var result = await cliente.DeleteAsync(url);
             bool check = true;
@@ -383,6 +399,7 @@ namespace VeterinariaFrontend
                 oMascota.Nombre = txtMascota.Text;
                 oMascota.Edad = Convert.ToInt32(txtEdad.Text);
                 oMascota.TipoMascota = cboTipo.SelectedIndex + 1;
+                cont = 0;
 
                 for (int i = 0; i < dgvAtencion.Rows.Count; i++)
                 {
@@ -399,11 +416,9 @@ namespace VeterinariaFrontend
 
                 if (test)
                 {
-                    MessageBox.Show("Mascota Agregada con Exito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Mascota Agregada con Exito!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     await CargarListBox(cboCliente.SelectedIndex + 1);
-                    txtMascota.Enabled = false;
-                    txtEdad.Enabled = false;
-                    cboTipo.Enabled = false;
+                    limpiarMascota();
                     return;
                 }
                 else
@@ -463,9 +478,9 @@ namespace VeterinariaFrontend
             oMascota = (Mascota)lstBoxMascota.SelectedItem;
             
             cont++;
-
+            
             int i = dgvAtencion.Rows.Count;
-            if (i > 0)
+            if (i > 0 && !Object.ReferenceEquals(null, oMascota))
             {
                 modo = Accion.CREARDETALLE;
                 int det = Convert.ToInt32(dgvAtencion.Rows[i - 1].Cells["ID"].Value);
@@ -479,7 +494,7 @@ namespace VeterinariaFrontend
                 dgvAtencion.Rows.Add(new object[] { oAtencion.CodAtencion, oAtencion.Fecha, oAtencion.Descripcion, oAtencion.Importe });
                 limpiar();
             }
-            else if (i == 0)
+            else if (i == 0 || Object.ReferenceEquals(null, oMascota))
             {
                 int det = ++i;
                 Atencion oAtencion = new Atencion();
@@ -627,7 +642,7 @@ namespace VeterinariaFrontend
                 if (dgvAtencion.CurrentCell.ColumnIndex == 4 && mascota > 0)
                 {
 
-                    bool test = await EliminarDetalle(det, mascota);
+                    bool test = await EliminarDetalle(mascota,det);
                     if (test)
                     {
                         MessageBox.Show("Detalle Borrado", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -734,6 +749,8 @@ namespace VeterinariaFrontend
                 lstBoxMascota.DataSource = null;
                 lstBoxMascota.Items.Clear();
                 dgvAtencion.Rows.Clear();
+                limpiar();
+                limpiarMascota();
                 return;
             }
             else
