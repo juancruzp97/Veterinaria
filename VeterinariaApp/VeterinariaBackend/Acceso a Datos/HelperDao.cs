@@ -523,7 +523,7 @@ namespace VeterinariaBackend.Acceso_a_Datos
 
             return flag;
         }
-        public bool DeleteDetalleAtencion(int idDetalle, int idMascota)
+        public bool DeleteDetalleAtencion(int idMascota, int idDetalle)
         {
             SqlConnection cnn = new SqlConnection(conexionString);
             SqlTransaction transaccion = null;

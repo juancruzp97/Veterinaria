@@ -63,3 +63,5 @@ D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\V
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\ref\VeterinariaFrontend.dll
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.pdb
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.genruntimeconfig.cache
+D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.FrmAltaCliente.resources
+D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaFrontend\obj\Debug\net5.0-windows\VeterinariaFrontend.FrmConsultaCliente.resources
