@@ -97,6 +97,14 @@ namespace VeterinariaBackend.Negocio
             return _mascotaDao.InsertarDetalleAtencion(atencion,id);
         }
 
+        public bool InsertarCliente(Clientes cliente)
+        {
+            return _mascotaDao.InsertarCliente(cliente);
+        }
+        public bool UpdateCliente(Clientes cliente)
+        {
+            return _mascotaDao.UpdateCliente(cliente);
+        }
         //public bool InsertarDetalleAtencion(List<Atencion> atencion)
         //{
         //    return _mascotaDao.InsertarDetalleAtencion(atencion);

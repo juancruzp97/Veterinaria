@@ -60,7 +60,7 @@ namespace VeterinariaWebApi.Controllers
         [HttpGet("ObtenerMascota/{id}")]
         public ActionResult ObtenerMascota(int id)
         {
-            if (servicio.ObtenerMascotaCliente(id).Count == 0)
+            if (servicio.ObtenerMascotaCliente(id).Count < 0)
             {
                 return BadRequest("Problemas al consultar Cliente");
             }
@@ -87,7 +87,7 @@ namespace VeterinariaWebApi.Controllers
             }
             else
             {
-                return Ok("No se pudo grabar la Mascota");
+                return BadRequest("No se pudo grabar la Mascota");
             }
         }
 
@@ -117,7 +117,7 @@ namespace VeterinariaWebApi.Controllers
             }
             if (servicio.UpdateMascota(oMascota))
             {
-                return Ok("Mascota ActualizadaCorrectamente");
+                return Ok("Mascota Actualizada Correctamente");
             }
             else
             {

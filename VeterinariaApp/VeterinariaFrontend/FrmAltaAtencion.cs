@@ -24,7 +24,7 @@ namespace VeterinariaFrontend
     }
     public partial class FrmAltaAtencion : Form
     {
-        private IGestorVeterinaria _gestor;
+      
         Mascota oMascota;
         Clientes oCliente;
         private Accion modo;
@@ -293,6 +293,7 @@ namespace VeterinariaFrontend
             int det = JsonConvert.DeserializeObject<int>(content);
 
             return det;
+
         }
         private async Task<bool> InsertarDetalleAtencion(List<Atencion> atencion, int id)
         {
@@ -432,69 +433,59 @@ namespace VeterinariaFrontend
             {
                 oMascota = (Mascota)lstBoxMascota.SelectedItem;
                 int idMascota = oMascota.CodigoMascota;
+                
                 int proxdet = await ProximoDetalle(idMascota);
-                List<Atencion> atencion = new List<Atencion>();
-                for (int i = 0; i < cont; i++)
+                if (proxdet == 0)
                 {
-                    Atencion a = new Atencion();
-
-                    //a.CodAtencion = Convert.ToInt32(dgvAtencion.Rows[indice].Cells["ID"].Value);
-                    a.CodAtencion = proxdet;
-                    a.Descripcion = dgvAtencion.Rows[indice].Cells["Descripcion"].Value.ToString();
-                    a.Fecha = Convert.ToDateTime(dgvAtencion.Rows[indice].Cells["Fecha"].Value);
-                    a.Importe = Convert.ToDouble(dgvAtencion.Rows[indice].Cells["Importe"].Value);
-
-                    atencion.Add(a);                   
-                    indice++;
+                    indice = 0;
                     proxdet++;
                 }
-                bool test = await InsertarDetalleAtencion(atencion, idMascota);
-                if (oMascota.ListaAtencion.Count == 0)
-                {
-                    MessageBox.Show("No existen Atenciones para Agregar", "Precaucion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
-                else
-                {
-                   
-                    if (test)
+                
+                    List<Atencion> atencion = new List<Atencion>();
+                    for (int i = 0; i < cont; i++)
                     {
-                        MessageBox.Show("Atencion Agregada Con Exito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        cont = 0;
+                        Atencion a = new Atencion();
+
+                        //a.CodAtencion = Convert.ToInt32(dgvAtencion.Rows[indice].Cells["ID"].Value);
+                        a.CodAtencion = proxdet;
+                        a.Descripcion = dgvAtencion.Rows[indice].Cells["Descripcion"].Value.ToString();
+                        a.Fecha = Convert.ToDateTime(dgvAtencion.Rows[indice].Cells["Fecha"].Value);
+                        a.Importe = Convert.ToDouble(dgvAtencion.Rows[indice].Cells["Importe"].Value);
+
+                        atencion.Add(a);
+                        indice++;
+                        proxdet++;
+                    }
+                    bool test = await InsertarDetalleAtencion(atencion, idMascota);
+                    if (oMascota.ListaAtencion.Count == 0)
+                    {
+                        MessageBox.Show("No existen Atenciones para Agregar", "Precaucion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
                     else
                     {
-                        MessageBox.Show("Problemas al agregar Atencion", "Precaucion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        return;
-                    }
-                }
+
+                        if (test)
+                        {
+                            MessageBox.Show("Atencion Agregada Con Exito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            cont = 0;
+                            return;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Problemas al agregar Atencion", "Precaucion", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            return;
+                        }
+                    }                
             }
-
-
         }
         private void btnAgregarDetalle_Click(object sender, EventArgs e)
         {
             oMascota = (Mascota)lstBoxMascota.SelectedItem;
-            
-            cont++;
-            
             int i = dgvAtencion.Rows.Count;
-            if (i > 0 && !Object.ReferenceEquals(null, oMascota))
-            {
-                modo = Accion.CREARDETALLE;
-                int det = Convert.ToInt32(dgvAtencion.Rows[i - 1].Cells["ID"].Value);
-                Atencion oAtencion = new Atencion();
-                oAtencion.CodAtencion = det + 1;
-                oAtencion.Descripcion = txtDescripcion.Text;
-                oAtencion.Fecha = dtPicker.Value;
-                oAtencion.Importe = Convert.ToDouble(txtImporte.Text);
-                oMascota.AgregarAtencion(oAtencion);
+            cont++;
 
-                dgvAtencion.Rows.Add(new object[] { oAtencion.CodAtencion, oAtencion.Fecha, oAtencion.Descripcion, oAtencion.Importe });
-                limpiar();
-            }
-            else if (i == 0 || Object.ReferenceEquals(null, oMascota))
+            if (i == 0 && Object.ReferenceEquals(null, oMascota))
             {
                 int det = ++i;
                 Atencion oAtencion = new Atencion();
@@ -506,21 +497,70 @@ namespace VeterinariaFrontend
 
                 dgvAtencion.Rows.Add(new object[] { oAtencion.CodAtencion, oAtencion.Fecha, oAtencion.Descripcion, oAtencion.Importe });
                 limpiar();
-            }
-        }
-        private void btnActualizar_Click(object sender, EventArgs e)
-        {
-            int mascota = _gestor.GetIdMascota(cboCliente.SelectedIndex + 1, txtMascota.Text);
+            }else if(i >= 0 && !Object.ReferenceEquals(null, oMascota))
+            {
+                modo = Accion.CREARDETALLE;
+                int det = 0;
+                if (i > 0)
+                {
+                    det = Convert.ToInt32(dgvAtencion.Rows[i - 1].Cells["ID"].Value);
+                }
 
-            int codigo = Convert.ToInt32(dgvAtencion.CurrentRow.Cells["id"].Value);
-            DateTime fecha = dtPicker.Value;
-            string descrp = txtDescripcion.Text;
-            double importe = Convert.ToDouble(txtImporte.Text);
-            //_gestor.UpdateAtencion(mascota, codigo, fecha, importe, descrp);
-            dgvAtencion.Rows.Clear();
-            CargarDGV();
-            btnAgregar.Enabled = true;
+                
+                Atencion oAtencion = new Atencion();
+                oAtencion.CodAtencion = det + 1;
+                oAtencion.Descripcion = txtDescripcion.Text;
+                oAtencion.Fecha = dtPicker.Value;
+                oAtencion.Importe = Convert.ToDouble(txtImporte.Text);
+                oMascota.AgregarAtencion(oAtencion);
+
+                dgvAtencion.Rows.Add(new object[] { oAtencion.CodAtencion, oAtencion.Fecha, oAtencion.Descripcion, oAtencion.Importe });
+                limpiar();
+            }
+
+
+
+            //if (i > 0 && !Object.ReferenceEquals(null, oMascota))
+            //{
+            //    modo = Accion.CREARDETALLE;
+            //    int det = Convert.ToInt32(dgvAtencion.Rows[i - 1].Cells["ID"].Value);
+            //    Atencion oAtencion = new Atencion();
+            //    oAtencion.CodAtencion = det + 1;
+            //    oAtencion.Descripcion = txtDescripcion.Text;
+            //    oAtencion.Fecha = dtPicker.Value;
+            //    oAtencion.Importe = Convert.ToDouble(txtImporte.Text);
+            //    oMascota.AgregarAtencion(oAtencion);
+
+            //    dgvAtencion.Rows.Add(new object[] { oAtencion.CodAtencion, oAtencion.Fecha, oAtencion.Descripcion, oAtencion.Importe });
+            //    limpiar();
+            //}
+            //else if (i == 0 || Object.ReferenceEquals(null, oMascota))
+            //{
+            //    int det = ++i;
+            //    Atencion oAtencion = new Atencion();
+            //    oAtencion.CodAtencion = det;
+            //    oAtencion.Descripcion = txtDescripcion.Text;
+            //    oAtencion.Fecha = dtPicker.Value;
+            //    oAtencion.Importe = Convert.ToDouble(txtImporte.Text);
+            //    oMascota.AgregarAtencion(oAtencion);
+
+            //    dgvAtencion.Rows.Add(new object[] { oAtencion.CodAtencion, oAtencion.Fecha, oAtencion.Descripcion, oAtencion.Importe });
+            //    limpiar();
+            //}
         }
+        //private void btnActualizar_Click(object sender, EventArgs e)
+        //{
+        //    int mascota = _gestor.GetIdMascota(cboCliente.SelectedIndex + 1, txtMascota.Text);
+
+        //    int codigo = Convert.ToInt32(dgvAtencion.CurrentRow.Cells["id"].Value);
+        //    DateTime fecha = dtPicker.Value;
+        //    string descrp = txtDescripcion.Text;
+        //    double importe = Convert.ToDouble(txtImporte.Text);
+        //    //_gestor.UpdateAtencion(mascota, codigo, fecha, importe, descrp);
+        //    dgvAtencion.Rows.Clear();
+        //    CargarDGV();
+        //    btnAgregar.Enabled = true;
+        //}
         private void btnNuevo_Click(object sender, EventArgs e)
         {
 
@@ -634,8 +674,7 @@ namespace VeterinariaFrontend
             }
             else
             {
-
-               
+ 
                 int det = Convert.ToInt32(dgvAtencion.CurrentRow.Cells["ID"].Value);
                 int mascota = oMascota.CodigoMascota;
                 //btnAgregar.Enabled = false;

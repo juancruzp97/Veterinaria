@@ -32,7 +32,15 @@ namespace VeterinariaBackend.Acceso_a_Datos.Interfaces
 
 
         //                   CLIENTE
-        List<Clientes> ConsultarClientes();
+        //SELECT
+        public List<Clientes> ConsultarClientes();
+
+        //INSERT
+        public bool InsertarCliente(Clientes cliente);
+
+        //UPDATE
+        public bool UpdateCliente(Clientes cliente);
+
 
         //                   ATENCION
 

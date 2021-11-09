@@ -21,3 +21,4 @@ D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\V
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\obj\Debug\net5.0\VeterinariaBackend.dll
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\obj\Debug\net5.0\ref\VeterinariaBackend.dll
 D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\obj\Debug\net5.0\VeterinariaBackend.pdb
+D:\Juan Cruz\Tec. Programacion\2do Cuatrimestre\Programacion II\TP\Veterinaria\VeterinariaApp\VeterinariaBackend\obj\Debug\net5.0\VeterinariaBackend.csproj.AssemblyReference.cache
