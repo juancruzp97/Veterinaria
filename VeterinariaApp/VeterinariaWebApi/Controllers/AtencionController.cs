@@ -54,7 +54,7 @@ namespace VeterinariaWebApi.Controllers
         [HttpGet("ProximoDetalle/{id}")]
         public IActionResult ProximoDetalle(int id)
         {
-            if (servicio.ProximoDetalle(id) <= 0)
+            if (servicio.ProximoDetalle(id) < 0)
             {
                 return BadRequest("Error al consultar Proximo Detalle");
             }

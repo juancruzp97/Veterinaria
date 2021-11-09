@@ -618,7 +618,19 @@ namespace VeterinariaBackend.Acceso_a_Datos
                 Clientes cliente = new Clientes();
                 cliente.Codigo = Convert.ToInt32(row["cod_cliente"].ToString());
                 cliente.Nombre = row["nombre"].ToString();
-                cliente.Sexo = row["sexo"].ToString().Equals("M");
+                if (row["sexo"].ToString().Equals("M"))
+                {
+                    cliente.Sexo = true;
+                }
+                else
+                {
+                    cliente.Sexo = false;
+                }
+                cliente.Direccion = row["direccion"].ToString();
+                cliente.Documento = Convert.ToInt32(row["documento"].ToString());
+                cliente.Telefono = Convert.ToInt32(row["telefono"].ToString());
+                cliente.Edad = Convert.ToInt32(row["edad"].ToString());
+                
 
                 lista.Add(cliente);
             }
@@ -626,17 +638,116 @@ namespace VeterinariaBackend.Acceso_a_Datos
             return lista;
 
         }
-        
+        public bool InsertarCliente(string spAltaC,Clientes cliente)
+        {
+            bool flag = true;
+            SqlConnection cnn = new SqlConnection(conexionString);
+            SqlTransaction transaccion = null;
 
-      
+            try
+            {
+                cnn.Open();
+                transaccion = cnn.BeginTransaction();
+                SqlCommand cmd = new SqlCommand(spAltaC, cnn, transaccion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", cliente.Nombre);
+                if (cliente.Sexo == true)
+                {
+                    cmd.Parameters.AddWithValue("@sexo", 'M');
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@sexo", 'F');
+                }
+                cmd.Parameters.AddWithValue("@telefono", cliente.Telefono);
+                cmd.Parameters.AddWithValue("@documento", cliente.Documento);
+                cmd.Parameters.AddWithValue("@direccion", cliente.Direccion);
+                cmd.Parameters.AddWithValue("@edad", cliente.Edad);
 
-     
+                cmd.ExecuteNonQuery();
 
-      
+                transaccion.Commit();
 
-        
-        
+            }
 
-    
-}
+            catch (Exception)
+            {
+                transaccion.Rollback();
+                flag = false;
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
+            }
+
+            return flag;
+        }
+
+        //UPDATE
+
+        public bool UpdateCliente(string spUpC,Clientes cliente)
+        {
+            bool flag = true;
+            SqlConnection cnn = new SqlConnection(conexionString);
+            SqlTransaction transaccion = null;
+
+            try
+            {
+                cnn.Open();
+                transaccion = cnn.BeginTransaction();
+                SqlCommand cmd = new SqlCommand(spUpC, cnn, transaccion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre",cliente.Nombre);
+                if(cliente.Sexo == true)
+                {
+                    cmd.Parameters.AddWithValue("@sexo",'M');
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@sexo",'F');
+                }
+                cmd.Parameters.AddWithValue("@telefono",cliente.Telefono);
+                cmd.Parameters.AddWithValue("@documento",cliente.Documento);
+                cmd.Parameters.AddWithValue("@direccion",cliente.Direccion);
+                cmd.Parameters.AddWithValue("@edad",cliente.Edad);
+                cmd.Parameters.AddWithValue("@codigo",cliente.Codigo);
+
+                cmd.ExecuteNonQuery();
+
+                transaccion.Commit();
+
+
+        }
+            catch (Exception)
+            {
+                flag = false;
+                transaccion.Rollback();
+
+            }
+            finally
+            {
+                if (cnn != null && cnn.State == ConnectionState.Open)
+                {
+                    cnn.Close();
+                }
+            }
+            return flag;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 }

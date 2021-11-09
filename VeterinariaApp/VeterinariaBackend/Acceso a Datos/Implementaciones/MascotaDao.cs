@@ -62,6 +62,12 @@ namespace VeterinariaBackend.Acceso_a_Datos.Implementaciones
             return HelperDao.GetInstance().ObtenerClientes("SP_CONSULTAR_CLIENTES");
         }
 
+        //UPDATE
+        public bool UpdateCliente(Clientes cliente)
+        {
+            return HelperDao.GetInstance().UpdateCliente("SP_UPDATE_CLIENTE", cliente);
+        }
+
 
 
 
@@ -112,6 +118,11 @@ namespace VeterinariaBackend.Acceso_a_Datos.Implementaciones
             return HelperDao.GetInstance().UpdateAtencion("SP_UPDATE_ATENCION", atencion,id);
         }
 
-        
+        public bool InsertarCliente(Clientes cliente)
+        {
+            return HelperDao.GetInstance().InsertarCliente("SP_ALTA_CLIENTE", cliente);
+        }
+
+       
     }
 }

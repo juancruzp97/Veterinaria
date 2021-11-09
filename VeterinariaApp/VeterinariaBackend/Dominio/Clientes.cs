@@ -11,6 +11,10 @@ namespace VeterinariaBackend.Dominio
         public string Nombre { get; set; }
         public bool Sexo { get; set; }
         public int Codigo { get; set; }
+        public int Telefono { get; set; }
+        public int Documento { get; set; }
+        public string Direccion { get; set; }
+        public int Edad { get; set; }
 
         public List<Mascota> ListMascotas { get; set; }
 

@@ -30,30 +30,33 @@ namespace VeterinariaFrontend
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cboCliente = new System.Windows.Forms.ComboBox();
+            this.cboSexo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtDocumento = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtEdad = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.dgvMascota = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quitar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Actualizar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Quitar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Actualizar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMascota)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -65,36 +68,25 @@ namespace VeterinariaFrontend
             this.label1.TabIndex = 0;
             this.label1.Text = "Cliente";
             // 
-            // comboBox1
+            // cboCliente
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(128, 40);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 1;
+            this.cboCliente.FormattingEnabled = true;
+            this.cboCliente.Location = new System.Drawing.Point(128, 40);
+            this.cboCliente.Name = "cboCliente";
+            this.cboCliente.Size = new System.Drawing.Size(121, 23);
+            this.cboCliente.TabIndex = 1;
+            this.cboCliente.SelectedIndexChanged += new System.EventHandler(this.cboCliente_SelectedIndexChanged);
             // 
-            // dataGridView1
+            // cboSexo
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nombre,
-            this.Edad,
-            this.Tipo,
-            this.Quitar,
-            this.Actualizar});
-            this.dataGridView1.Location = new System.Drawing.Point(47, 202);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(544, 150);
-            this.dataGridView1.TabIndex = 2;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(413, 78);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
-            this.comboBox2.TabIndex = 23;
+            this.cboSexo.FormattingEnabled = true;
+            this.cboSexo.Items.AddRange(new object[] {
+            "Masculino",
+            "Femenino"});
+            this.cboSexo.Location = new System.Drawing.Point(413, 78);
+            this.cboSexo.Name = "cboSexo";
+            this.cboSexo.Size = new System.Drawing.Size(121, 23);
+            this.cboSexo.TabIndex = 23;
             // 
             // label6
             // 
@@ -105,12 +97,12 @@ namespace VeterinariaFrontend
             this.label6.TabIndex = 22;
             this.label6.Text = "Direccion";
             // 
-            // textBox5
+            // txtDireccion
             // 
-            this.textBox5.Location = new System.Drawing.Point(413, 164);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(121, 23);
-            this.textBox5.TabIndex = 21;
+            this.txtDireccion.Location = new System.Drawing.Point(413, 164);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(121, 23);
+            this.txtDireccion.TabIndex = 21;
             // 
             // label5
             // 
@@ -121,12 +113,12 @@ namespace VeterinariaFrontend
             this.label5.TabIndex = 20;
             this.label5.Text = "Documento";
             // 
-            // textBox4
+            // txtDocumento
             // 
-            this.textBox4.Location = new System.Drawing.Point(413, 119);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(121, 23);
-            this.textBox4.TabIndex = 19;
+            this.txtDocumento.Location = new System.Drawing.Point(413, 119);
+            this.txtDocumento.Name = "txtDocumento";
+            this.txtDocumento.Size = new System.Drawing.Size(121, 23);
+            this.txtDocumento.TabIndex = 19;
             // 
             // label4
             // 
@@ -137,12 +129,12 @@ namespace VeterinariaFrontend
             this.label4.TabIndex = 18;
             this.label4.Text = "Telefono";
             // 
-            // textBox3
+            // txtTelefono
             // 
-            this.textBox3.Location = new System.Drawing.Point(170, 161);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 23);
-            this.textBox3.TabIndex = 17;
+            this.txtTelefono.Location = new System.Drawing.Point(170, 161);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(100, 23);
+            this.txtTelefono.TabIndex = 17;
             // 
             // label3
             // 
@@ -153,12 +145,12 @@ namespace VeterinariaFrontend
             this.label3.TabIndex = 16;
             this.label3.Text = "Sexo";
             // 
-            // textBox2
+            // txtEdad
             // 
-            this.textBox2.Location = new System.Drawing.Point(170, 119);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 15;
+            this.txtEdad.Location = new System.Drawing.Point(170, 119);
+            this.txtEdad.Name = "txtEdad";
+            this.txtEdad.Size = new System.Drawing.Size(100, 23);
+            this.txtEdad.TabIndex = 15;
             // 
             // label2
             // 
@@ -169,12 +161,12 @@ namespace VeterinariaFrontend
             this.label2.TabIndex = 14;
             this.label2.Text = "Edad";
             // 
-            // textBox1
+            // txtNombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(170, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 13;
+            this.txtNombre.Location = new System.Drawing.Point(170, 81);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(100, 23);
+            this.txtNombre.TabIndex = 13;
             // 
             // label7
             // 
@@ -185,94 +177,152 @@ namespace VeterinariaFrontend
             this.label7.TabIndex = 12;
             this.label7.Text = "Nombre";
             // 
-            // button1
+            // btnBorrar
             // 
-            this.button1.Location = new System.Drawing.Point(147, 404);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Borrar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBorrar.Location = new System.Drawing.Point(236, 404);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(75, 23);
+            this.btnBorrar.TabIndex = 24;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.Location = new System.Drawing.Point(361, 404);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancelar.Location = new System.Drawing.Point(361, 404);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 25;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnSalir
             // 
-            this.button3.Location = new System.Drawing.Point(459, 404);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "Salir";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSalir.Location = new System.Drawing.Point(459, 404);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 26;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnEditar
             // 
-            this.button4.Location = new System.Drawing.Point(47, 404);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 27;
-            this.button4.Text = "Editar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnEditar.Location = new System.Drawing.Point(136, 404);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.TabIndex = 27;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Location = new System.Drawing.Point(47, 404);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 28;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_ClickAsync);
+            // 
+            // dgvMascota
+            // 
+            this.dgvMascota.AllowUserToAddRows = false;
+            this.dgvMascota.AllowUserToDeleteRows = false;
+            this.dgvMascota.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMascota.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Nombre,
+            this.Especie,
+            this.Edad,
+            this.Quitar,
+            this.Actualizar});
+            this.dgvMascota.Location = new System.Drawing.Point(12, 222);
+            this.dgvMascota.Name = "dgvMascota";
+            this.dgvMascota.RowTemplate.Height = 25;
+            this.dgvMascota.Size = new System.Drawing.Size(608, 150);
+            this.dgvMascota.TabIndex = 29;
+            this.dgvMascota.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMascota_CellContentClick);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
             // 
+            // Especie
+            // 
+            this.Especie.HeaderText = "Especie";
+            this.Especie.Name = "Especie";
+            // 
             // Edad
             // 
             this.Edad.HeaderText = "Edad";
             this.Edad.Name = "Edad";
             // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            // 
             // Quitar
             // 
             this.Quitar.HeaderText = "Quitar";
             this.Quitar.Name = "Quitar";
+            this.Quitar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Quitar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Quitar.Text = "Quitar";
+            this.Quitar.ToolTipText = "Quitar";
+            this.Quitar.UseColumnTextForButtonValue = true;
             // 
             // Actualizar
             // 
             this.Actualizar.HeaderText = "Actualizar";
             this.Actualizar.Name = "Actualizar";
+            this.Actualizar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Actualizar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Actualizar.Text = "Actualizar";
+            this.Actualizar.ToolTipText = "Actualizar";
+            this.Actualizar.UseColumnTextForButtonValue = true;
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(459, 39);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
+            this.btnConsultar.TabIndex = 30;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // FrmConsultaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 492);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.btnConsultar);
+            this.Controls.Add(this.dgvMascota);
+            this.Controls.Add(this.btnAceptar);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnBorrar);
+            this.Controls.Add(this.cboSexo);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtDocumento);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtEdad);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboCliente);
             this.Controls.Add(this.label1);
             this.Name = "FrmConsultaCliente";
             this.Text = "FrmConsultaCliente";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FrmConsultaCliente_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMascota)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,28 +331,33 @@ namespace VeterinariaFrontend
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox cboCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.ComboBox cboSexo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtDocumento;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtEdad;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Edad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quitar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Actualizar;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridView dgvMascota;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Especie;
+        private System.Windows.Forms.DataGridViewButtonColumn Quitar;
+        private System.Windows.Forms.DataGridViewButtonColumn Actualizar;
+        private System.Windows.Forms.Button btnConsultar;
     }
 }

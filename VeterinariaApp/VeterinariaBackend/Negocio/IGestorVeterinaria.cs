@@ -10,6 +10,7 @@ namespace VeterinariaBackend.Negocio
 {
     public interface IGestorVeterinaria
     {
+        public bool InsertarCliente(Clientes cliente);
         public bool InsertarDetalleAtencion(List<Atencion> oAtencion, int idMascota);
         public bool InsertarMascota(Mascota oMascota, int cod);
         public bool AgregarMascotaAtencion(Mascota mascota, int id);
@@ -26,6 +27,7 @@ namespace VeterinariaBackend.Negocio
         public bool DeleteAtencion(int idMascota);
         public bool DeleteDetalleAtencion(int idMascota, int idDetalle);
         public bool UpdateAtencion(Atencion atencion, int id);
+        public bool UpdateCliente(Clientes cliente);
 
     }
 }
